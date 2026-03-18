@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>🚀 МЕГА-УЛЬТРА ОБЛАКО</title>
+    <title>☁️ iCloud Про</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -12,700 +12,383 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f7;
             min-height: 100vh;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            color: #1d1d1f;
         }
 
-        /* Анимированный фон */
-        .animated-bg {
-            position: fixed;
+        /* Навбар */
+        .navbar {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 15px 30px;
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
+            z-index: 1000;
         }
 
-        .cloud {
-            position: absolute;
-            background: rgba(255,255,255,0.05);
-            border-radius: 50%;
-            filter: blur(60px);
-            animation: float 20s infinite;
-        }
-
-        .cloud1 {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            left: 5%;
-            background: rgba(96, 165, 250, 0.1);
-            animation-delay: 0s;
-        }
-
-        .cloud2 {
-            width: 400px;
-            height: 400px;
-            bottom: 10%;
-            right: 5%;
-            background: rgba(167, 139, 250, 0.1);
-            animation-delay: 5s;
-        }
-
-        .cloud3 {
-            width: 500px;
-            height: 500px;
-            top: 30%;
-            right: 20%;
-            background: rgba(52, 211, 153, 0.1);
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(30px, 20px) scale(1.1); }
-        }
-
-        .container {
-            max-width: 1300px;
+        .nav-content {
+            max-width: 1200px;
             margin: 0 auto;
-            position: relative;
-            z-index: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* Шапка */
-        .header {
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
+        .logo {
+            font-size: 28px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #0066cc, #5e5ce0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .admin-badge {
+            background: #ff3b30;
             color: white;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            animation: slideDown 1s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 10s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .header h1 {
-            font-size: 64px;
-            margin-bottom: 10px;
-            background: linear-gradient(135deg, #60a5fa, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
-        }
-
-        .header p {
-            font-size: 20px;
-            opacity: 0.9;
-            margin-bottom: 30px;
-        }
-
-        /* Статистика */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .stat-card {
-            background: rgba(255,255,255,0.1);
+            padding: 5px 12px;
             border-radius: 20px;
-            padding: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .nav-stats {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-stat {
             text-align: center;
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
+        }
+
+        .nav-stat-number {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1d1d1f;
+        }
+
+        .nav-stat-label {
+            font-size: 12px;
+            color: #86868b;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Карточки */
+        .card {
+            background: white;
+            border-radius: 18px;
+            padding: 30px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        /* Вход */
+        .auth-card {
+            max-width: 400px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .auth-card h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .apple-input {
+            width: 100%;
+            padding: 18px 20px;
+            margin: 10px 0;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            font-size: 17px;
+            background: #f5f5f7;
             transition: all 0.3s;
-            animation: fadeInUp 1s ease;
-            animation-fill-mode: both;
         }
 
-        .stat-card:nth-child(1) { animation-delay: 0.2s; }
-        .stat-card:nth-child(2) { animation-delay: 0.4s; }
-        .stat-card:nth-child(3) { animation-delay: 0.6s; }
-
-        .stat-card:hover {
-            transform: translateY(-10px);
-            background: rgba(255,255,255,0.15);
-            border-color: #60a5fa;
+        .apple-input:focus {
+            outline: none;
+            border-color: #0066cc;
+            background: white;
         }
 
-        .stat-icon {
-            font-size: 40px;
-            margin-bottom: 10px;
+        .apple-button {
+            width: 100%;
+            padding: 18px;
+            background: #0066cc;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #fff, #cbd5e1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .apple-button:hover {
+            background: #0055b3;
         }
 
-        .stat-label {
-            color: #94a3b8;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .apple-button.secondary {
+            background: #e5e5ea;
+            color: #1d1d1f;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Основной блок */
-        .main-box {
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            padding: 40px;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.2);
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Вкладки */
         .tabs {
             display: flex;
-            gap: 15px;
-            margin-bottom: 40px;
-            background: rgba(0,0,0,0.05);
-            padding: 10px;
-            border-radius: 20px;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
         .tab {
             flex: 1;
             padding: 15px;
             text-align: center;
-            border-radius: 15px;
+            background: #f5f5f7;
+            border-radius: 12px;
             cursor: pointer;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .tab:hover::before {
-            left: 100%;
         }
 
         .tab.active {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
-        }
-
-        /* Формы */
-        .form {
-            display: none;
-            animation: slideIn 0.5s ease;
-        }
-
-        .form.active {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .form h2 {
-            font-size: 32px;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .input-group i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            font-size: 20px;
-        }
-
-        .form input {
-            width: 100%;
-            padding: 18px 18px 18px 50px;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: rgba(255,255,255,0.9);
-        }
-
-        .form input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-            outline: none;
-        }
-
-        .btn {
-            width: 100%;
-            padding: 18px;
-            border: none;
-            border-radius: 15px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-            margin: 10px 0;
-        }
-
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            transform: translate(-50%, -50%);
-            transition: width 0.5s, height 0.5s;
-        }
-
-        .btn:active::after {
-            width: 300px;
-            height: 300px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            color: white;
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 20px 30px -5px rgba(59, 130, 246, 0.6);
-        }
-
-        .btn-danger {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
-            color: white;
-        }
-
-        .btn-success {
-            background: linear-gradient(135deg, #10b981, #059669);
-            color: white;
-        }
-
-        .btn-telegram {
-            background: linear-gradient(135deg, #0088cc, #0077b5);
+            background: #0066cc;
             color: white;
         }
 
         /* Хранилище */
-        .storage {
-            display: none;
-            animation: fadeIn 0.5s ease;
-        }
-
-        /* Профиль */
-        .profile-card {
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            border-radius: 20px;
-            padding: 30px;
-            margin-bottom: 30px;
+        .storage-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            border: 1px solid #e2e8f0;
+            margin-bottom: 20px;
         }
 
-        .profile-info {
+        .user-info {
             display: flex;
             align-items: center;
             gap: 20px;
         }
 
         .avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            background: #0066cc;
+            border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-weight: bold;
-            font-size: 32px;
-            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
-            animation: pulse 2s infinite;
+            font-size: 24px;
+            font-weight: 600;
         }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .storage-bar-container {
+            background: #f5f5f7;
+            height: 8px;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
         }
 
-        .badge {
-            background: #e2e8f0;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 12px;
-            color: #475569;
-        }
-
-        /* Прогресс */
-        .storage-info {
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 30px;
-            border: 1px solid #e2e8f0;
+        .storage-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #0066cc, #5e5ce0);
+            border-radius: 4px;
+            transition: width 0.5s;
         }
 
         .storage-stats {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 10px;
-            color: #475569;
-        }
-
-        .progress-bar {
-            height: 12px;
-            background: #e2e8f0;
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
-            border-radius: 6px;
-            width: 0%;
-            transition: width 1s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .progress-fill::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            animation: shine 2s infinite;
-        }
-
-        @keyframes shine {
-            to { left: 100%; }
-        }
-
-        /* Ссылка */
-        .share-card {
-            background: linear-gradient(135deg, #eff6ff, #ede9fe);
-            border-radius: 15px;
-            padding: 20px;
+            color: #86868b;
+            font-size: 14px;
             margin-bottom: 30px;
-            border: 1px solid #c7d2fe;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
         }
 
-        .share-link {
-            background: white;
-            padding: 12px 18px;
-            border-radius: 10px;
-            border: 1px solid #cbd5e1;
-            font-family: monospace;
-            word-break: break-all;
-            flex: 1;
-        }
-
-        .copy-btn {
-            background: white;
-            border: 1px solid #cbd5e1;
-            padding: 12px 25px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .copy-btn:hover {
-            background: #f8fafc;
-            border-color: #3b82f6;
-            transform: scale(1.05);
-        }
-
-        /* Загрузка */
-        .upload-card {
-            background: linear-gradient(135deg, #f0fdf4, #f0f9ff);
-            border: 2px dashed #3b82f6;
-            border-radius: 20px;
-            padding: 50px;
-            text-align: center;
-            margin: 30px 0;
-            cursor: pointer;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .upload-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
-            transform: rotate(45deg);
-            animation: shimmer 3s infinite;
-        }
-
-        .upload-card:hover {
-            background: linear-gradient(135deg, #dcfce7, #dbeafe);
-            border-color: #8b5cf6;
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.3);
-        }
-
-        .upload-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Поиск */
-        .search-box {
-            position: relative;
-            margin: 30px 0;
-        }
-
-        .search-box i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            font-size: 20px;
-        }
-
-        .search-box input {
-            width: 100%;
-            padding: 18px 18px 18px 50px;
-            border: 2px solid #e2e8f0;
-            border-radius: 15px;
-            font-size: 16px;
-            transition: all 0.3s;
-        }
-
-        .search-box input:focus {
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-            outline: none;
-        }
-
-        /* Таблица файлов */
-        .files-container {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            border: 1px solid #e2e8f0;
+        /* Сетка файлов */
+        .files-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
             margin-top: 30px;
         }
 
-        .files-header {
-            display: grid;
-            grid-template-columns: 4fr 1fr 1.5fr 1.5fr;
+        .file-item {
+            background: #f5f5f7;
+            border-radius: 12px;
             padding: 20px;
-            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
-            font-weight: 600;
-            color: #1e293b;
-            border-bottom: 2px solid #e2e8f0;
-        }
-
-        .file-row {
-            display: grid;
-            grid-template-columns: 4fr 1fr 1.5fr 1.5fr;
-            padding: 15px 20px;
-            border-bottom: 1px solid #e2e8f0;
-            align-items: center;
+            text-align: center;
             transition: all 0.3s;
-            animation: fadeInRow 0.5s ease;
-            animation-fill-mode: both;
+            cursor: pointer;
+            border: 1px solid transparent;
         }
 
-        .file-row:hover {
-            background: #f8fafc;
-            transform: scale(1.01);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-
-        @keyframes fadeInRow {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .file-name {
-            display: flex;
-            align-items: center;
-            gap: 12px;
+        .file-item:hover {
+            background: white;
+            border-color: #0066cc;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.1);
         }
 
         .file-icon {
-            font-size: 28px;
-            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .file-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .file-size {
+            font-size: 12px;
+            color: #86868b;
         }
 
         .file-actions {
             display: flex;
-            gap: 8px;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
 
-        .action-btn {
+        .file-item:hover .file-actions {
+            opacity: 1;
+        }
+
+        .file-action-btn {
             padding: 8px 16px;
             border: none;
             border-radius: 8px;
+            font-size: 12px;
+            font-weight: 500;
             cursor: pointer;
-            font-size: 14px;
-            font-weight: 600;
             transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .action-btn:hover {
-            transform: translateY(-2px);
-            filter: brightness(1.1);
         }
 
         .download-btn {
-            background: #10b981;
-            color: white;
-        }
-
-        .share-btn {
-            background: #3b82f6;
+            background: #0066cc;
             color: white;
         }
 
         .delete-btn {
-            background: #ef4444;
+            background: #ff3b30;
             color: white;
         }
 
-        /* Теги */
-        .tag {
-            background: #e2e8f0;
-            padding: 4px 8px;
+        /* Загрузка */
+        .upload-area {
+            border: 2px dashed #c6c6c8;
             border-radius: 12px;
-            font-size: 12px;
-            color: #475569;
+            padding: 40px;
+            text-align: center;
+            background: #f5f5f7;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 30px 0;
         }
 
-        /* Уведомления */
-        .toast-container {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9999;
+        .upload-area:hover {
+            border-color: #0066cc;
+            background: white;
         }
 
-        .toast {
-            background: linear-gradient(135deg, #10b981, #059669);
+        .upload-icon {
+            font-size: 48px;
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+
+        /* Админ панель */
+        .admin-section {
+            background: linear-gradient(135deg, #1d1d1f, #2d2d2f);
             color: white;
-            padding: 16px 24px;
+            border-radius: 18px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .admin-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .admin-stat-card {
+            background: rgba(255,255,255,0.1);
             border-radius: 12px;
-            margin-top: 10px;
-            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            animation: slideInRight 0.3s ease;
+            padding: 20px;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        .toast.error {
-            background: linear-gradient(135deg, #ef4444, #dc2626);
+        .admin-stat-number {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
-        @keyframes slideInRight {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .admin-stat-label {
+            font-size: 14px;
+            opacity: 0.8;
         }
 
-        /* Модальное окно */
+        .admin-user-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .admin-badge {
+            background: #ff3b30;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* Поиск */
+        .search-box {
+            margin: 20px 0;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #d2d2d7;
+            border-radius: 12px;
+            font-size: 17px;
+            background: #f5f5f7;
+            padding-left: 45px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="%2386868b" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>');
+            background-repeat: no-repeat;
+            background-position: 15px center;
+        }
+
+        /* Модалка */
         .modal {
             display: none;
             position: fixed;
@@ -713,400 +396,234 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.7);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
-            z-index: 10000;
-            animation: fadeIn 0.3s ease;
+            z-index: 2000;
         }
 
         .modal-content {
             background: white;
-            padding: 40px;
-            border-radius: 30px;
-            width: 500px;
+            border-radius: 18px;
+            padding: 30px;
+            width: 400px;
             max-width: 90%;
-            animation: scaleIn 0.3s ease;
-            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        @keyframes scaleIn {
-            from { transform: scale(0.9); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        .modal-content h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Кнопка Telegram в шапке */
-        .telegram-support {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            background: rgba(0,136,204,0.2);
-            padding: 10px 20px;
-            border-radius: 50px;
-            border: 1px solid rgba(0,136,204,0.3);
-            backdrop-filter: blur(10px);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .telegram-support:hover {
-            background: rgba(0,136,204,0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px -5px rgba(0,136,204,0.5);
-        }
-
-        .telegram-support img {
-            width: 24px;
-            height: 24px;
-        }
-
-        .telegram-support span {
+        /* Уведомления */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #1d1d1f;
             color: white;
-            font-weight: 600;
+            padding: 16px 24px;
+            border-radius: 12px;
+            display: none;
+            animation: slideIn 0.3s;
+            z-index: 3000;
         }
 
-        /* Кнопка обратной связи */
-        .feedback-button {
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Кнопка Telegram */
+        .telegram-btn {
             position: fixed;
             bottom: 30px;
             left: 30px;
-            background: linear-gradient(135deg, #0088cc, #0077b5);
+            background: #0066cc;
             color: white;
-            padding: 16px 32px;
-            border-radius: 50px;
+            padding: 15px 25px;
+            border-radius: 30px;
             border: none;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
-            box-shadow: 0 10px 30px -5px rgba(0,136,204,0.5);
+            box-shadow: 0 10px 30px rgba(0,102,204,0.3);
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             z-index: 1000;
-            animation: pulse-telegram 2s infinite;
             transition: all 0.3s;
         }
 
-        .feedback-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 20px 40px -5px rgba(0,136,204,0.8);
+        .telegram-btn:hover {
+            transform: scale(1.05);
+            background: #0055b3;
         }
 
-        @keyframes pulse-telegram {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .feedback-button i {
-            font-size: 24px;
-        }
-
-        /* Премиум бейдж */
-        .premium-badge {
-            background: linear-gradient(135deg, #fbbf24, #f59e0b);
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-left: 10px;
-        }
-
-        /* Адаптация */
         @media (max-width: 768px) {
-            .header h1 { font-size: 40px; }
-            .files-header, .file-row {
-                grid-template-columns: 2fr 1fr;
+            .files-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .hide-mobile {
+            .nav-stats {
                 display: none;
             }
-            .profile-card {
-                flex-direction: column;
-                text-align: center;
-            }
-            .share-card {
-                flex-direction: column;
-            }
-            .feedback-button {
-                bottom: 20px;
-                left: 20px;
-                padding: 12px 24px;
-                font-size: 16px;
-            }
-            .telegram-support span {
+            .telegram-btn span {
                 display: none;
             }
-        }
-
-        /* Прелоадер */
-        .loader {
-            width: 48px;
-            height: 48px;
-            border: 5px solid #e2e8f0;
-            border-bottom-color: #3b82f6;
-            border-radius: 50%;
-            animation: rotation 1s linear infinite;
-            margin: 50px auto;
-        }
-
-        @keyframes rotation {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Счетчики */
-        .counter {
-            background: rgba(255,255,255,0.2);
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            margin-left: 10px;
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg">
-        <div class="cloud cloud1"></div>
-        <div class="cloud cloud2"></div>
-        <div class="cloud cloud3"></div>
-    </div>
-
-    <!-- Кнопка обратной связи в Telegram -->
-    <button class="feedback-button" onclick="window.open('https://t.me/error_08081', '_blank')">
-        <i>📱</i>
-        <span>Написать в Telegram</span>
-    </button>
-
-    <div class="container">
-        <!-- Шапка -->
-        <div class="header">
-            <!-- Telegram поддержка в шапке -->
-            <div class="telegram-support" onclick="window.open('https://t.me/error_08081', '_blank')">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.53.52-.5-.01-1.47-.28-2.19-.52-.88-.3-1.58-.46-1.52-.98.03-.27.31-.55.85-.82 3.37-1.47 5.62-2.44 6.75-2.91 3.21-1.35 3.88-1.58 4.31-1.58.1 0 .32.02.47.15.12.1.15.23.16.33.01.09 0 .23-.02.36z'/%3E%3C/svg%3E" alt="Telegram">
-                <span>Поддержка</span>
+    <!-- Навигация -->
+    <div class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                ☁️ iCloud Про
+                <span class="admin-badge" id="adminBadge" style="display:none;">ADMIN</span>
             </div>
-
-            <h1>🚀 МЕГА-УЛЬТРА ОБЛАКО</h1>
-            <p>⚡ Самое быстрое • 🔒 Самое надежное • 💎 Самое красивое</p>
-            
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-icon">👥</div>
-                    <div class="stat-number" id="totalUsers">0</div>
-                    <div class="stat-label">Пользователей</div>
+            <div class="nav-stats">
+                <div class="nav-stat">
+                    <div class="nav-stat-number" id="navUsers">0</div>
+                    <div class="nav-stat-label">пользователей</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon">📁</div>
-                    <div class="stat-number" id="totalFiles">0</div>
-                    <div class="stat-label">Файлов</div>
+                <div class="nav-stat">
+                    <div class="nav-stat-number" id="navFiles">0</div>
+                    <div class="nav-stat-label">файлов</div>
                 </div>
-                <div class="stat-card">
-                    <div class="stat-icon">💾</div>
-                    <div class="stat-number" id="totalSize">0 MB</div>
-                    <div class="stat-label">Данных</div>
+                <div class="nav-stat">
+                    <div class="nav-stat-number" id="navSize">0 GB</div>
+                    <div class="nav-stat-label">данных</div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Основной блок -->
-        <div class="main-box">
-            <!-- Вкладки -->
-            <div class="tabs" id="tabs">
-                <div class="tab active" onclick="switchTab('login')">
-                    <span>🚪</span> Вход
-                </div>
-                <div class="tab" onclick="switchTab('register')">
-                    <span>📝</span> Регистрация
-                </div>
-                <div class="tab" onclick="switchTab('premium')">
-                    <span>💎</span> Премиум
-                </div>
+    <!-- Кнопка Telegram -->
+    <button class="telegram-btn" onclick="window.open('https://t.me/error_08081', '_blank')">
+        <span>📱</span>
+        <span>Поддержка</span>
+    </button>
+
+    <div class="container">
+        <!-- Вход / Регистрация -->
+        <div id="authBlock" class="auth-card card">
+            <div class="tabs">
+                <div class="tab active" onclick="showAuthTab('login')">Вход</div>
+                <div class="tab" onclick="showAuthTab('register')">Регистрация</div>
             </div>
 
-            <!-- Форма входа -->
-            <div id="loginForm" class="form active">
-                <h2>🚪 Добро пожаловать!</h2>
-                <div class="input-group">
-                    <i>👤</i>
-                    <input type="text" id="loginUsername" placeholder="Логин">
-                </div>
-                <div class="input-group">
-                    <i>🔑</i>
-                    <input type="password" id="loginPassword" placeholder="Пароль">
-                </div>
-                <button class="btn btn-primary" onclick="login()">
-                    <span>🚀</span> Войти в облако
-                </button>
-                <p style="text-align:center; margin-top:20px;">
-                    <a href="#" onclick="switchTab('register')" style="color:#3b82f6;">Нет аккаунта? Создать!</a>
-                </p>
+            <div id="loginForm">
+                <h2>Вход в iCloud</h2>
+                <input type="text" id="loginUser" class="apple-input" placeholder="Логин">
+                <input type="password" id="loginPass" class="apple-input" placeholder="Пароль">
+                <button class="apple-button" onclick="login()">Войти</button>
             </div>
 
-            <!-- Форма регистрации -->
-            <div id="registerForm" class="form">
-                <h2>📝 Создать аккаунт</h2>
-                <div class="input-group">
-                    <i>👤</i>
-                    <input type="text" id="regUsername" placeholder="Придумай логин">
-                </div>
-                <div class="input-group">
-                    <i>🔑</i>
-                    <input type="password" id="regPassword" placeholder="Придумай пароль">
-                </div>
-                <div class="input-group">
-                    <i>✓</i>
-                    <input type="password" id="regConfirm" placeholder="Повтори пароль">
-                </div>
-                <button class="btn btn-primary" onclick="register()">
-                    <span>✨</span> Создать аккаунт
-                </button>
+            <div id="registerForm" style="display:none;">
+                <h2>Создать аккаунт</h2>
+                <input type="text" id="regUser" class="apple-input" placeholder="Логин">
+                <input type="password" id="regPass" class="apple-input" placeholder="Пароль">
+                <input type="password" id="regConfirm" class="apple-input" placeholder="Повтори пароль">
+                <button class="apple-button" onclick="register()">Зарегистрироваться</button>
             </div>
+        </div>
 
-            <!-- Премиум страница -->
-            <div id="premiumForm" class="form">
-                <h2>💎 Премиум возможности</h2>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
-                    <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 30px; border-radius: 20px; text-align: center;">
-                        <div style="font-size: 48px;">🚀</div>
-                        <h3>Скорость</h3>
-                        <p>Загрузка в 2 раза быстрее</p>
+        <!-- Хранилище пользователя -->
+        <div id="userStorage" style="display:none;">
+            <!-- Админ панель (только для админа) -->
+            <div id="adminPanel" class="admin-section" style="display:none;">
+                <h2>👑 Админ панель</h2>
+                
+                <div class="admin-stats">
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-number" id="adminTotalUsers">0</div>
+                        <div class="admin-stat-label">Всего пользователей</div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #c7d2fe, #a5b4fc); padding: 30px; border-radius: 20px; text-align: center;">
-                        <div style="font-size: 48px;">📦</div>
-                        <h3>1 GB места</h3>
-                        <p>В 10 раз больше!</p>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-number" id="adminTotalFiles">0</div>
+                        <div class="admin-stat-label">Всего файлов</div>
                     </div>
-                    <div style="background: linear-gradient(135deg, #bbf7d0, #86efac); padding: 30px; border-radius: 20px; text-align: center;">
-                        <div style="font-size: 48px;">🎨</div>
-                        <h3>Темы оформления</h3>
-                        <p>Любые цвета</p>
+                    <div class="admin-stat-card">
+                        <div class="admin-stat-number" id="adminTotalSize">0 GB</div>
+                        <div class="admin-stat-label">Всего данных</div>
                     </div>
                 </div>
-                <button class="btn btn-primary" onclick="showToast('Премиум скоро будет!')">
-                    <span>💎</span> Купить премиум
+
+                <h3 style="margin: 20px 0;">👥 Пользователи</h3>
+                <div id="adminUsersList"></div>
+
+                <button class="apple-button secondary" onclick="adminLogout()" style="margin-top:20px;">
+                    Выйти из админки
                 </button>
             </div>
 
-            <!-- Хранилище -->
-            <div id="storage" class="storage">
-                <!-- Профиль -->
-                <div class="profile-card">
-                    <div class="profile-info">
+            <!-- Обычное хранилище -->
+            <div class="card">
+                <div class="storage-header">
+                    <div class="user-info">
                         <div class="avatar" id="userAvatar"></div>
                         <div>
                             <h2 id="userName"></h2>
-                            <p>
-                                <span class="badge">🔰 Обычный</span>
-                                <span class="badge">📅 <span id="userDate"></span></span>
-                            </p>
+                            <p style="color:#86868b;" id="userType">Обычный пользователь</p>
                         </div>
                     </div>
-                    <button class="btn btn-danger" onclick="logout()" style="width: auto; padding: 12px 30px;">
-                        <span>🚪</span> Выйти
+                    <button class="apple-button secondary" onclick="logout()" style="width:auto; padding:12px 25px;">
+                        Выйти
                     </button>
                 </div>
 
                 <!-- Прогресс хранилища -->
-                <div class="storage-info">
-                    <div class="storage-stats">
-                        <span>📊 Использовано: <strong><span id="usedSpace">0 MB</span></strong></span>
-                        <span>📦 Всего: <strong><span id="totalSpace">100 MB</span></strong></span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="storageBar" style="width: 0%"></div>
-                    </div>
+                <div class="storage-stats">
+                    <span>Использовано: <strong><span id="usedSpace">0 GB</span></strong></span>
+                    <span>Всего: <strong>50 GB</strong></span>
                 </div>
-
-                <!-- Ссылка для друга -->
-                <div class="share-card">
-                    <div style="display: flex; align-items: center; gap: 10px;">
-                        <span style="font-size: 24px;">🔗</span>
-                        <span style="font-weight: 600;">Твоя ссылка:</span>
-                    </div>
-                    <div class="share-link" id="userLink">Загрузка...</div>
-                    <button class="copy-btn" onclick="copyLink()">
-                        <span>📋</span> Копировать
-                    </button>
-                </div>
-
-                <!-- Загрузка -->
-                <div class="upload-card" onclick="document.getElementById('fileInput').click()">
-                    <input type="file" id="fileInput" style="display:none" multiple onchange="uploadFiles()">
-                    <div class="upload-icon">📤</div>
-                    <h2>Загрузить файлы</h2>
-                    <p>Нажми или перетащи файлы сюда</p>
-                    <p style="color:#94a3b8; font-size:14px;">Поддерживаются любые форматы</p>
+                <div class="storage-bar-container">
+                    <div class="storage-bar" id="storageBar" style="width:0%"></div>
                 </div>
 
                 <!-- Поиск -->
                 <div class="search-box">
-                    <i>🔍</i>
-                    <input type="text" id="searchInput" placeholder="Поиск файлов..." onkeyup="searchFiles()">
+                    <input type="text" class="search-input" id="searchInput" placeholder="Поиск файлов..." onkeyup="searchFiles()">
+                </div>
+
+                <!-- Загрузка -->
+                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                    <input type="file" id="fileInput" style="display:none" multiple onchange="uploadFiles()">
+                    <div class="upload-icon">📤</div>
+                    <h3>Загрузить файлы</h3>
+                    <p>Нажмите или перетащите файлы сюда</p>
+                </div>
+
+                <!-- Сетка файлов -->
+                <div id="filesGrid" class="files-grid">
+                    <!-- Файлы будут здесь -->
                 </div>
 
                 <!-- Кнопка создать папку -->
-                <button class="btn btn-success" onclick="showFolderModal()" style="margin: 20px 0;">
-                    <span>📁</span> Создать папку
+                <button class="apple-button secondary" onclick="showCreateFolder()" style="margin-top:20px;">
+                    + Новая папка
                 </button>
-
-                <!-- Кнопка поддержки в Telegram (внутри хранилища) -->
-                <button class="btn btn-telegram" onclick="window.open('https://t.me/error_08081', '_blank')" style="margin: 10px 0;">
-                    <span>📱</span> Связаться с поддержкой
-                </button>
-
-                <!-- Список файлов -->
-                <div class="files-container">
-                    <div class="files-header">
-                        <div>Имя файла</div>
-                        <div class="hide-mobile">Размер</div>
-                        <div class="hide-mobile">Дата</div>
-                        <div>Действия</div>
-                    </div>
-                    <div id="fileList">
-                        <div class="loader"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно -->
+    <!-- Модальное окно для папки -->
     <div id="folderModal" class="modal">
         <div class="modal-content">
-            <h3>📁 Создать папку</h3>
-            <div class="input-group">
-                <i>📁</i>
-                <input type="text" id="folderName" placeholder="Название папки">
-            </div>
-            <div style="display: flex; gap: 10px;">
-                <button class="btn btn-success" onclick="createFolder()" style="flex:1;">Создать</button>
-                <button class="btn btn-danger" onclick="closeModal()" style="flex:1;">Отмена</button>
-            </div>
+            <h3>📁 Новая папка</h3>
+            <input type="text" id="folderName" class="apple-input" placeholder="Название папки">
+            <button class="apple-button" onclick="createFolder()">Создать</button>
+            <button class="apple-button secondary" onclick="closeModal()">Отмена</button>
         </div>
     </div>
 
-    <!-- Уведомления -->
-    <div class="toast-container" id="toastContainer"></div>
+    <!-- Уведомление -->
+    <div id="toast" class="toast"></div>
 
     <script>
         // ============== ДАННЫЕ ==============
-        let users = JSON.parse(localStorage.getItem('cloud_users') || '[]');
+        let users = JSON.parse(localStorage.getItem('icloud_users') || '[]');
         let currentUser = null;
+        
+        // 👑 АДМИН ДАННЫЕ (логин и пароль от админки)
+        const ADMIN_USERNAME = 'admin';
+        const ADMIN_PASSWORD = 'icloud2024';
 
         // ============== СТАТИСТИКА ==============
         function updateStats() {
@@ -1119,81 +636,54 @@
                 (user.files || []).forEach(f => totalSize += (f.size || 0));
             });
             
-            animateNumber('totalUsers', totalUsers);
-            animateNumber('totalFiles', totalFiles);
-            document.getElementById('totalSize').innerText = (totalSize / (1024*1024)).toFixed(1) + ' MB';
+            document.getElementById('navUsers').innerText = totalUsers;
+            document.getElementById('navFiles').innerText = totalFiles;
+            document.getElementById('navSize').innerText = (totalSize / (1024*1024*1024)).toFixed(2) + ' GB';
         }
 
-        function animateNumber(id, target) {
-            let element = document.getElementById(id);
-            let current = parseInt(element.innerText) || 0;
-            let step = Math.ceil((target - current) / 20);
-            
-            let interval = setInterval(() => {
-                current += step;
-                if (current >= target) {
-                    current = target;
-                    clearInterval(interval);
-                }
-                element.innerText = current;
-            }, 20);
-        }
-
-        // ============== УВЕДОМЛЕНИЯ ==============
-        function showToast(text, type = 'success', duration = 3000) {
-            let container = document.getElementById('toastContainer');
-            let toast = document.createElement('div');
-            toast.className = `toast ${type === 'error' ? 'error' : ''}`;
-            
-            let icon = type === 'success' ? '✅' : '❌';
-            toast.innerHTML = `
-                <span style="font-size: 20px;">${icon}</span>
-                <span>${text}</span>
-            `;
-            
-            container.appendChild(toast);
-            
+        // ============== ПОКАЗ УВЕДОМЛЕНИЙ ==============
+        function showToast(text, isError = false) {
+            let toast = document.getElementById('toast');
+            toast.style.background = isError ? '#ff3b30' : '#1d1d1f';
+            toast.innerText = text;
+            toast.style.display = 'block';
             setTimeout(() => {
-                toast.style.animation = 'slideInRight 0.3s reverse';
-                setTimeout(() => toast.remove(), 300);
-            }, duration);
+                toast.style.display = 'none';
+            }, 3000);
         }
 
         // ============== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ==============
-        function switchTab(tab) {
+        function showAuthTab(tab) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
-            
             if(tab === 'login') {
                 document.querySelectorAll('.tab')[0].classList.add('active');
-                document.getElementById('loginForm').classList.add('active');
-            } else if(tab === 'register') {
-                document.querySelectorAll('.tab')[1].classList.add('active');
-                document.getElementById('registerForm').classList.add('active');
+                document.getElementById('loginForm').style.display = 'block';
+                document.getElementById('registerForm').style.display = 'none';
             } else {
-                document.querySelectorAll('.tab')[2].classList.add('active');
-                document.getElementById('premiumForm').classList.add('active');
+                document.querySelectorAll('.tab')[1].classList.add('active');
+                document.getElementById('loginForm').style.display = 'none';
+                document.getElementById('registerForm').style.display = 'block';
             }
         }
 
         // ============== РЕГИСТРАЦИЯ ==============
         function register() {
-            let username = document.getElementById('regUsername').value;
-            let password = document.getElementById('regPassword').value;
+            let username = document.getElementById('regUser').value;
+            let password = document.getElementById('regPass').value;
             let confirm = document.getElementById('regConfirm').value;
             
             if(!username || !password) {
-                showToast('Заполни все поля!', 'error');
+                showToast('Заполни все поля!', true);
                 return;
             }
             
             if(password !== confirm) {
-                showToast('Пароли не совпадают!', 'error');
+                showToast('Пароли не совпадают!', true);
                 return;
             }
             
             if(users.find(u => u.username === username)) {
-                showToast('Логин уже занят!', 'error');
+                showToast('Логин уже занят!', true);
                 return;
             }
             
@@ -1203,48 +693,125 @@
                 password: password,
                 files: [],
                 created: new Date().toLocaleDateString(),
-                totalSize: 0
+                totalSize: 0,
+                isAdmin: false
             };
             
             users.push(user);
-            localStorage.setItem('cloud_users', JSON.stringify(users));
+            localStorage.setItem('icloud_users', JSON.stringify(users));
             
             currentUser = user;
             showStorage();
             updateStats();
-            showToast('🎉 Добро пожаловать!');
+            showToast('✅ Аккаунт создан!');
         }
 
         // ============== ВХОД ==============
         function login() {
-            let username = document.getElementById('loginUsername').value;
-            let password = document.getElementById('loginPassword').value;
+            let username = document.getElementById('loginUser').value;
+            let password = document.getElementById('loginPass').value;
+            
+            // Проверка на админа
+            if(username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
+                currentUser = {
+                    id: 'admin',
+                    username: 'Admin',
+                    isAdmin: true
+                };
+                showAdminPanel();
+                return;
+            }
             
             currentUser = users.find(u => u.username === username && u.password === password);
             
             if(currentUser) {
                 showStorage();
                 updateStats();
-                showToast('🚀 Успешный вход!');
+                showToast('🚀 Добро пожаловать!');
             } else {
-                showToast('Неверный логин или пароль!', 'error');
+                showToast('Неверный логин или пароль!', true);
             }
+        }
+
+        // ============== АДМИН ПАНЕЛЬ ==============
+        function showAdminPanel() {
+            document.getElementById('authBlock').style.display = 'none';
+            document.getElementById('userStorage').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'block';
+            document.getElementById('adminBadge').style.display = 'inline-block';
+            
+            // Скрываем обычное хранилище для админа
+            document.querySelector('#userStorage .card').style.display = 'none';
+            
+            updateAdminPanel();
+        }
+
+        function updateAdminPanel() {
+            let totalUsers = users.length;
+            let totalFiles = 0;
+            let totalSize = 0;
+            
+            users.forEach(user => {
+                totalFiles += (user.files || []).length;
+                (user.files || []).forEach(f => totalSize += (f.size || 0));
+            });
+            
+            document.getElementById('adminTotalUsers').innerText = totalUsers;
+            document.getElementById('adminTotalFiles').innerText = totalFiles;
+            document.getElementById('adminTotalSize').innerText = (totalSize / (1024*1024*1024)).toFixed(2) + ' GB';
+            
+            let html = '';
+            users.forEach((user, index) => {
+                let userFiles = (user.files || []).length;
+                let userSize = user.files ? user.files.reduce((acc, f) => acc + (f.size || 0), 0) : 0;
+                
+                html += `
+                    <div class="admin-user-item">
+                        <div>
+                            <strong>${user.username}</strong>
+                            <div style="font-size:12px; opacity:0.7;">ID: ${user.id}</div>
+                        </div>
+                        <div>
+                            <span style="margin-right:15px;">📁 ${userFiles}</span>
+                            <span style="margin-right:15px;">💾 ${(userSize/(1024*1024*1024)).toFixed(2)} GB</span>
+                            <button class="apple-button secondary" style="width:auto; padding:8px 15px;" 
+                                    onclick="adminDeleteUser(${index})">Удалить</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('adminUsersList').innerHTML = html;
+        }
+
+        function adminDeleteUser(index) {
+            if(confirm('Удалить пользователя?')) {
+                users.splice(index, 1);
+                localStorage.setItem('icloud_users', JSON.stringify(users));
+                updateAdminPanel();
+                updateStats();
+                showToast('👤 Пользователь удален');
+            }
+        }
+
+        function adminLogout() {
+            currentUser = null;
+            document.getElementById('authBlock').style.display = 'block';
+            document.getElementById('userStorage').style.display = 'none';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.getElementById('adminBadge').style.display = 'none';
         }
 
         // ============== ХРАНИЛИЩЕ ==============
         function showStorage() {
-            document.getElementById('tabs').style.display = 'none';
-            document.getElementById('loginForm').style.display = 'none';
-            document.getElementById('registerForm').style.display = 'none';
-            document.getElementById('premiumForm').style.display = 'none';
-            document.getElementById('storage').style.display = 'block';
+            document.getElementById('authBlock').style.display = 'none';
+            document.getElementById('userStorage').style.display = 'block';
+            document.getElementById('adminPanel').style.display = 'none';
+            document.querySelector('#userStorage .card').style.display = 'block';
             
             document.getElementById('userName').innerText = currentUser.username;
             document.getElementById('userAvatar').innerText = currentUser.username[0].toUpperCase();
-            document.getElementById('userDate').innerText = currentUser.created || 'Сегодня';
-            
-            let url = window.location.href.split('?')[0];
-            document.getElementById('userLink').innerText = url + '?user=' + currentUser.id;
+            document.getElementById('userType').innerText = 'Обычный пользователь';
             
             updateStorageBar();
             showFiles();
@@ -1252,10 +819,8 @@
 
         function logout() {
             currentUser = null;
-            document.getElementById('tabs').style.display = 'flex';
-            document.getElementById('storage').style.display = 'none';
-            switchTab('login');
-            showToast('👋 До встречи!');
+            document.getElementById('authBlock').style.display = 'block';
+            document.getElementById('userStorage').style.display = 'none';
         }
 
         // ============== ПРОГРЕСС ==============
@@ -1263,25 +828,20 @@
             let totalSize = 0;
             (currentUser.files || []).forEach(f => totalSize += (f.size || 0));
             
-            let usedMB = (totalSize / (1024*1024)).toFixed(2);
-            let percent = Math.min((totalSize / (100 * 1024 * 1024)) * 100, 100);
+            let usedGB = (totalSize / (1024*1024*1024)).toFixed(2);
+            let percent = Math.min((totalSize / (50 * 1024 * 1024 * 1024)) * 100, 100);
             
-            document.getElementById('usedSpace').innerText = usedMB + ' MB';
+            document.getElementById('usedSpace').innerText = usedGB + ' GB';
             document.getElementById('storageBar').style.width = percent + '%';
         }
 
         // ============== ФАЙЛЫ ==============
         function showFiles() {
             let files = currentUser.files || [];
+            let grid = document.getElementById('filesGrid');
             
             if(files.length === 0) {
-                document.getElementById('fileList').innerHTML = `
-                    <div style="text-align: center; padding: 60px;">
-                        <div style="font-size: 80px; margin-bottom: 20px;">📁</div>
-                        <h3 style="color: #64748b;">Здесь пока пусто</h3>
-                        <p style="color: #94a3b8;">Загрузи первый файл!</p>
-                    </div>
-                `;
+                grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:50px; color:#86868b;">📁 Нет файлов</div>';
                 return;
             }
             
@@ -1291,40 +851,21 @@
             files.forEach((file, index) => {
                 let icon = getFileIcon(file.name);
                 let size = formatSize(file.size);
-                let date = file.date ? new Date(file.date).toLocaleString() : 'Только что';
                 
                 html += `
-                    <div class="file-row" style="animation-delay: ${index * 0.05}s">
-                        <div class="file-name">
-                            <span class="file-icon">${icon}</span>
-                            <div>
-                                <div style="font-weight: 500;">${file.name}</div>
-                                <div class="hide-desktop tag" style="display:none;">${size}</div>
-                            </div>
-                        </div>
-                        <div class="hide-mobile">${size}</div>
-                        <div class="hide-mobile">
-                            <span class="tag">${date}</span>
-                        </div>
+                    <div class="file-item">
+                        <div class="file-icon">${icon}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${size}</div>
                         <div class="file-actions">
-                            <button class="action-btn download-btn" onclick="downloadFile(${index})">
-                                <span>📥</span>
-                                <span class="hide-mobile">Скачать</span>
-                            </button>
-                            <button class="action-btn share-btn" onclick="shareFile(${index})">
-                                <span>🔗</span>
-                                <span class="hide-mobile">Поделиться</span>
-                            </button>
-                            <button class="action-btn delete-btn" onclick="deleteFile(${index})">
-                                <span>🗑️</span>
-                                <span class="hide-mobile">Удалить</span>
-                            </button>
+                            <button class="file-action-btn download-btn" onclick="downloadFile(${index})">📥</button>
+                            <button class="file-action-btn delete-btn" onclick="deleteFile(${index})">🗑️</button>
                         </div>
                     </div>
                 `;
             });
             
-            document.getElementById('fileList').innerHTML = html;
+            grid.innerHTML = html;
         }
 
         function getFileIcon(filename) {
@@ -1334,8 +875,7 @@
                 'mp4': '🎬', 'avi': '🎬', 'mov': '🎬',
                 'mp3': '🎵', 'wav': '🎵',
                 'pdf': '📕', 'doc': '📘', 'docx': '📘',
-                'zip': '🗜️', 'rar': '🗜️',
-                'txt': '📄', 'js': '⚡', 'html': '🌐', 'css': '🎨'
+                'zip': '🗜️', 'rar': '🗜️'
             };
             return icons[ext] || '📄';
         }
@@ -1352,13 +892,7 @@
         function uploadFiles() {
             let files = document.getElementById('fileInput').files;
             
-            if(files.length === 0) return;
-            
-            showToast(`⏳ Загрузка ${files.length} файлов...`);
-            
-            for(let i = 0; i < files.length; i++) {
-                let file = files[i];
-                
+            for(let file of files) {
                 let reader = new FileReader();
                 reader.onload = function(e) {
                     if(!currentUser.files) currentUser.files = [];
@@ -1372,17 +906,15 @@
                     
                     let index = users.findIndex(u => u.id === currentUser.id);
                     users[index] = currentUser;
-                    localStorage.setItem('cloud_users', JSON.stringify(users));
+                    localStorage.setItem('icloud_users', JSON.stringify(users));
                     
-                    if(i === files.length - 1) {
-                        showFiles();
-                        updateStorageBar();
-                        updateStats();
-                        showToast(`✅ Загружено ${files.length} файлов`);
-                    }
+                    showFiles();
+                    updateStorageBar();
+                    updateStats();
                 };
                 reader.readAsDataURL(file);
             }
+            showToast(`✅ Загружено ${files.length} файлов`);
         }
 
         // ============== СКАЧИВАНИЕ ==============
@@ -1392,39 +924,23 @@
             a.href = file.data;
             a.download = file.name;
             a.click();
-            showToast(`📥 Скачивание ${file.name}`);
-        }
-
-        // ============== ПОДЕЛИТЬСЯ ==============
-        function shareFile(index) {
-            let file = currentUser.files[index];
-            
-            if(navigator.share) {
-                navigator.share({
-                    title: file.name,
-                    text: 'Мой файл',
-                    url: file.data
-                });
-            } else {
-                navigator.clipboard.writeText(file.data);
-                showToast('🔗 Ссылка скопирована!');
-            }
+            showToast(`📥 ${file.name}`);
         }
 
         // ============== УДАЛЕНИЕ ==============
         function deleteFile(index) {
-            if(confirm('Точно удалить?')) {
+            if(confirm('Удалить файл?')) {
                 let fileName = currentUser.files[index].name;
                 currentUser.files.splice(index, 1);
                 
                 let userIndex = users.findIndex(u => u.id === currentUser.id);
                 users[userIndex] = currentUser;
-                localStorage.setItem('cloud_users', JSON.stringify(users));
+                localStorage.setItem('icloud_users', JSON.stringify(users));
                 
                 showFiles();
                 updateStorageBar();
                 updateStats();
-                showToast(`🗑️ ${fileName} удален`);
+                showToast(`🗑️ ${fileName}`);
             }
         }
 
@@ -1437,36 +953,28 @@
             
             if(search === '') {
                 showFiles();
-            } else {
-                let html = '';
-                filtered.forEach((file, index) => {
-                    html += `
-                        <div class="file-row">
-                            <div class="file-name">
-                                <span class="file-icon">${getFileIcon(file.name)}</span>
-                                <span>${file.name}</span>
-                            </div>
-                            <div class="hide-mobile">${formatSize(file.size)}</div>
-                            <div class="hide-mobile">${new Date(file.date).toLocaleDateString()}</div>
-                            <div class="file-actions">
-                                <button class="action-btn download-btn" onclick="downloadFile(${index})">📥</button>
-                            </div>
-                        </div>
-                    `;
-                });
-                document.getElementById('fileList').innerHTML = html;
+                return;
             }
-        }
-
-        // ============== ССЫЛКА ==============
-        function copyLink() {
-            let link = document.getElementById('userLink').innerText;
-            navigator.clipboard.writeText(link);
-            showToast('📋 Ссылка скопирована!');
+            
+            let html = '';
+            filtered.forEach((file, index) => {
+                html += `
+                    <div class="file-item">
+                        <div class="file-icon">${getFileIcon(file.name)}</div>
+                        <div class="file-name">${file.name}</div>
+                        <div class="file-size">${formatSize(file.size)}</div>
+                        <div class="file-actions">
+                            <button class="file-action-btn download-btn" onclick="downloadFile(${index})">📥</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            document.getElementById('filesGrid').innerHTML = html;
         }
 
         // ============== ПАПКИ ==============
-        function showFolderModal() {
+        function showCreateFolder() {
             document.getElementById('folderModal').style.display = 'flex';
         }
 
@@ -1478,7 +986,7 @@
         function createFolder() {
             let name = document.getElementById('folderName').value;
             if(!name) {
-                showToast('Введите название папки!', 'error');
+                showToast('Введите название!', true);
                 return;
             }
             
@@ -1493,7 +1001,7 @@
             
             let index = users.findIndex(u => u.id === currentUser.id);
             users[index] = currentUser;
-            localStorage.setItem('cloud_users', JSON.stringify(users));
+            localStorage.setItem('icloud_users', JSON.stringify(users));
             
             showFiles();
             closeModal();
@@ -1512,11 +1020,6 @@
 
         // ============== ЗАПУСК ==============
         updateStats();
-
-        // ============== ПРИВЕТСТВИЕ ==============
-        setTimeout(() => {
-            showToast('🚀 Добро пожаловать в Мега-Ультра Облако!', 'success', 5000);
-        }, 1000);
     </script>
 </body>
 </html>
