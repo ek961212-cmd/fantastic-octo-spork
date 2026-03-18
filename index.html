@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>☁️ Мега Облако</title>
+    <title>🚀 МЕГА-УЛЬТРА ОБЛАКО</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -12,322 +12,697 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             min-height: 100vh;
             padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Анимированный фон */
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: float 20s infinite;
+        }
+
+        .cloud1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            background: rgba(96, 165, 250, 0.1);
+            animation-delay: 0s;
+        }
+
+        .cloud2 {
+            width: 400px;
+            height: 400px;
+            bottom: 10%;
+            right: 5%;
+            background: rgba(167, 139, 250, 0.1);
+            animation-delay: 5s;
+        }
+
+        .cloud3 {
+            width: 500px;
+            height: 500px;
+            top: 30%;
+            right: 20%;
+            background: rgba(52, 211, 153, 0.1);
+            animation-delay: 10s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, 20px) scale(1.1); }
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1300px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
         /* Шапка */
         .header {
             background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 30px;
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
             color: white;
-            margin-bottom: 20px;
-            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            animation: slideDown 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 10s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .header h1 {
-            font-size: 48px;
+            font-size: 64px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #60a5fa, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(96, 165, 250, 0.5);
+        }
+
+        .header p {
+            font-size: 20px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        /* Статистика */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease;
+            animation-fill-mode: both;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.2s; }
+        .stat-card:nth-child(2) { animation-delay: 0.4s; }
+        .stat-card:nth-child(3) { animation-delay: 0.6s; }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+            border-color: #60a5fa;
+        }
+
+        .stat-icon {
+            font-size: 40px;
             margin-bottom: 10px;
         }
 
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .stat {
-            background: rgba(255,255,255,0.2);
-            padding: 15px 25px;
-            border-radius: 15px;
-            text-align: center;
-        }
-
         .stat-number {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: bold;
+            background: linear-gradient(135deg, #fff, #cbd5e1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            color: #94a3b8;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Основной блок */
         .main-box {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.2);
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Вкладки */
         .tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 15px;
+            margin-bottom: 40px;
+            background: rgba(0,0,0,0.05);
+            padding: 10px;
+            border-radius: 20px;
         }
 
         .tab {
             flex: 1;
             padding: 15px;
             text-align: center;
-            background: #f0f2f5;
-            border-radius: 10px;
+            border-radius: 15px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .tab:hover::before {
+            left: 100%;
         }
 
         .tab.active {
-            background: #667eea;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             color: white;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
         }
 
         /* Формы */
         .form {
             display: none;
+            animation: slideIn 0.5s ease;
         }
 
         .form.active {
             display: block;
         }
 
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .form h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 20px;
+        }
+
         .form input {
             width: 100%;
-            padding: 15px;
-            margin: 10px 0;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
+            padding: 18px 18px 18px 50px;
+            border: 2px solid #e2e8f0;
+            border-radius: 15px;
             font-size: 16px;
+            transition: all 0.3s;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .form input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            outline: none;
         }
 
         .btn {
             width: 100%;
-            padding: 15px;
-            background: #667eea;
-            color: white;
+            padding: 18px;
             border: none;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            margin: 10px 0;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin: 10px 0;
         }
 
-        .btn:hover {
-            background: #5a67d8;
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-primary:hover {
             transform: translateY(-2px);
+            box-shadow: 0 20px 30px -5px rgba(59, 130, 246, 0.6);
         }
 
         .btn-danger {
-            background: #e53e3e;
-        }
-
-        .btn-danger:hover {
-            background: #c53030;
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
         }
 
         .btn-success {
-            background: #48bb78;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
         }
 
-        .btn-success:hover {
-            background: #38a169;
+        .btn-telegram {
+            background: linear-gradient(135deg, #0088cc, #0077b5);
+            color: white;
         }
 
         /* Хранилище */
         .storage {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
-        .user-header {
+        /* Профиль */
+        .profile-card {
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #e2e8f0;
+            flex-wrap: wrap;
+            gap: 20px;
+            border: 1px solid #e2e8f0;
         }
 
-        .user-info {
+        .profile-info {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         .avatar {
-            width: 60px;
-            height: 60px;
-            background: #667eea;
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 32px;
+            box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.5);
+            animation: pulse 2s infinite;
         }
 
-        .user-details h3 {
-            font-size: 24px;
-            margin-bottom: 5px;
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
-        .user-details small {
-            color: #718096;
+        .badge {
+            background: #e2e8f0;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #475569;
         }
 
-        /* Прогресс бар */
-        .storage-bar {
-            background: #edf2f7;
-            height: 10px;
-            border-radius: 5px;
-            margin: 15px 0;
-            overflow: hidden;
-        }
-
-        .storage-used {
-            height: 100%;
-            background: linear-gradient(90deg, #48bb78, #667eea);
-            border-radius: 5px;
-            transition: width 0.3s;
+        /* Прогресс */
+        .storage-info {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            border: 1px solid #e2e8f0;
         }
 
         .storage-stats {
             display: flex;
             justify-content: space-between;
-            color: #718096;
-            font-size: 14px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            color: #475569;
         }
 
-        /* Ссылка для друга */
-        .share-box {
-            background: #f7fafc;
-            border: 2px dashed #cbd5e0;
-            border-radius: 10px;
+        .progress-bar {
+            height: 12px;
+            background: #e2e8f0;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            border-radius: 6px;
+            width: 0%;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 2s infinite;
+        }
+
+        @keyframes shine {
+            to { left: 100%; }
+        }
+
+        /* Ссылка */
+        .share-card {
+            background: linear-gradient(135deg, #eff6ff, #ede9fe);
+            border-radius: 15px;
             padding: 20px;
-            margin: 20px 0;
-            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid #c7d2fe;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .share-link {
             background: white;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #e2e8f0;
+            padding: 12px 18px;
+            border-radius: 10px;
+            border: 1px solid #cbd5e1;
+            font-family: monospace;
             word-break: break-all;
-            margin: 10px 0;
-            font-size: 14px;
+            flex: 1;
         }
 
         .copy-btn {
-            background: #667eea;
-            color: white;
-            border: none;
-            padding: 8px 20px;
-            border-radius: 5px;
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 12px 25px;
+            border-radius: 10px;
             cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .copy-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            transform: scale(1.05);
         }
 
         /* Загрузка */
-        .upload-area {
-            background: #f7fafc;
-            border: 2px dashed #667eea;
-            border-radius: 10px;
-            padding: 40px;
+        .upload-card {
+            background: linear-gradient(135deg, #f0fdf4, #f0f9ff);
+            border: 2px dashed #3b82f6;
+            border-radius: 20px;
+            padding: 50px;
             text-align: center;
-            margin: 20px 0;
+            margin: 30px 0;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
-        .upload-area:hover {
-            background: #edf2f7;
-            border-color: #5a67d8;
+        .upload-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
         }
 
-        .upload-area i {
-            font-size: 48px;
-            color: #667eea;
-            margin-bottom: 10px;
+        .upload-card:hover {
+            background: linear-gradient(135deg, #dcfce7, #dbeafe);
+            border-color: #8b5cf6;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        .upload-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
         }
 
         /* Поиск */
         .search-box {
-            margin: 20px 0;
+            position: relative;
+            margin: 30px 0;
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94a3b8;
+            font-size: 20px;
         }
 
         .search-box input {
             width: 100%;
-            padding: 12px;
+            padding: 18px 18px 18px 50px;
             border: 2px solid #e2e8f0;
-            border-radius: 10px;
+            border-radius: 15px;
             font-size: 16px;
-            padding-left: 40px;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23718096" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>') no-repeat 10px center;
+            transition: all 0.3s;
         }
 
-        /* Файлы */
+        .search-box input:focus {
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+            outline: none;
+        }
+
+        /* Таблица файлов */
+        .files-container {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            margin-top: 30px;
+        }
+
         .files-header {
             display: grid;
-            grid-template-columns: 4fr 1fr 1fr 1fr;
-            padding: 15px;
-            background: #f7fafc;
-            border-radius: 10px;
+            grid-template-columns: 4fr 1fr 1.5fr 1.5fr;
+            padding: 20px;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
             font-weight: 600;
-            color: #4a5568;
-            margin: 20px 0 10px;
+            color: #1e293b;
+            border-bottom: 2px solid #e2e8f0;
         }
 
-        .file-item {
+        .file-row {
             display: grid;
-            grid-template-columns: 4fr 1fr 1fr 1fr;
-            padding: 15px;
+            grid-template-columns: 4fr 1fr 1.5fr 1.5fr;
+            padding: 15px 20px;
             border-bottom: 1px solid #e2e8f0;
             align-items: center;
-            transition: background 0.3s;
+            transition: all 0.3s;
+            animation: fadeInRow 0.5s ease;
+            animation-fill-mode: both;
         }
 
-        .file-item:hover {
-            background: #f7fafc;
+        .file-row:hover {
+            background: #f8fafc;
+            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        @keyframes fadeInRow {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .file-name {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
-        .file-name i {
-            font-size: 24px;
+        .file-icon {
+            font-size: 28px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         .file-actions {
             display: flex;
+            gap: 8px;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
             gap: 5px;
         }
 
-        .file-actions button {
-            padding: 5px 10px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 12px;
+        .action-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.1);
         }
 
-        .badge {
-            background: #edf2f7;
-            padding: 3px 8px;
+        .download-btn {
+            background: #10b981;
+            color: white;
+        }
+
+        .share-btn {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .delete-btn {
+            background: #ef4444;
+            color: white;
+        }
+
+        /* Теги */
+        .tag {
+            background: #e2e8f0;
+            padding: 4px 8px;
             border-radius: 12px;
             font-size: 12px;
+            color: #475569;
+        }
+
+        /* Уведомления */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+        }
+
+        .toast {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            margin-top: 10px;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideInRight 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .toast.error {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
         }
 
         /* Модальное окно */
@@ -338,80 +713,212 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.5);
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 10000;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal-content {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            width: 400px;
+            padding: 40px;
+            border-radius: 30px;
+            width: 500px;
             max-width: 90%;
+            animation: scaleIn 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         .modal-content h3 {
+            font-size: 28px;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        /* Уведомления */
-        .toast {
-            position: fixed;
-            bottom: 20px;
+        /* Кнопка Telegram в шапке */
+        .telegram-support {
+            position: absolute;
+            top: 20px;
             right: 20px;
-            background: #48bb78;
-            color: white;
-            padding: 15px 25px;
-            border-radius: 10px;
-            display: none;
-            animation: slideIn 0.3s;
-            z-index: 1001;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(0,136,204,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(0,136,204,0.3);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
+        .telegram-support:hover {
+            background: rgba(0,136,204,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(0,136,204,0.5);
+        }
+
+        .telegram-support img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .telegram-support span {
+            color: white;
+            font-weight: 600;
+        }
+
+        /* Кнопка обратной связи */
+        .feedback-button {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: linear-gradient(135deg, #0088cc, #0077b5);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 50px;
+            border: none;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 30px -5px rgba(0,136,204,0.5);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: pulse-telegram 2s infinite;
+            transition: all 0.3s;
+        }
+
+        .feedback-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 20px 40px -5px rgba(0,136,204,0.8);
+        }
+
+        @keyframes pulse-telegram {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .feedback-button i {
+            font-size: 24px;
+        }
+
+        /* Премиум бейдж */
+        .premium-badge {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 10px;
         }
 
         /* Адаптация */
         @media (max-width: 768px) {
-            .files-header, .file-item {
+            .header h1 { font-size: 40px; }
+            .files-header, .file-row {
                 grid-template-columns: 2fr 1fr;
-                gap: 10px;
             }
-            
             .hide-mobile {
                 display: none;
             }
-            
-            .stats {
+            .profile-card {
                 flex-direction: column;
-                gap: 10px;
+                text-align: center;
             }
+            .share-card {
+                flex-direction: column;
+            }
+            .feedback-button {
+                bottom: 20px;
+                left: 20px;
+                padding: 12px 24px;
+                font-size: 16px;
+            }
+            .telegram-support span {
+                display: none;
+            }
+        }
+
+        /* Прелоадер */
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #e2e8f0;
+            border-bottom-color: #3b82f6;
+            border-radius: 50%;
+            animation: rotation 1s linear infinite;
+            margin: 50px auto;
+        }
+
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Счетчики */
+        .counter {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            margin-left: 10px;
         }
     </style>
 </head>
 <body>
+    <div class="animated-bg">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="cloud cloud3"></div>
+    </div>
+
+    <!-- Кнопка обратной связи в Telegram -->
+    <button class="feedback-button" onclick="window.open('https://t.me/error_08081', '_blank')">
+        <i>📱</i>
+        <span>Написать в Telegram</span>
+    </button>
+
     <div class="container">
         <!-- Шапка -->
         <div class="header">
-            <h1>☁️ МЕГА ОБЛАКО</h1>
-            <p>Бесплатно • Надёжно • Для всех</p>
+            <!-- Telegram поддержка в шапке -->
+            <div class="telegram-support" onclick="window.open('https://t.me/error_08081', '_blank')">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.2-.08-.06-.19-.04-.27-.02-.12.02-1.96 1.25-5.54 3.69-.52.36-1 .53-1.53.52-.5-.01-1.47-.28-2.19-.52-.88-.3-1.58-.46-1.52-.98.03-.27.31-.55.85-.82 3.37-1.47 5.62-2.44 6.75-2.91 3.21-1.35 3.88-1.58 4.31-1.58.1 0 .32.02.47.15.12.1.15.23.16.33.01.09 0 .23-.02.36z'/%3E%3C/svg%3E" alt="Telegram">
+                <span>Поддержка</span>
+            </div>
+
+            <h1>🚀 МЕГА-УЛЬТРА ОБЛАКО</h1>
+            <p>⚡ Самое быстрое • 🔒 Самое надежное • 💎 Самое красивое</p>
             
-            <div class="stats">
-                <div class="stat">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
                     <div class="stat-number" id="totalUsers">0</div>
-                    <div>Пользователей</div>
+                    <div class="stat-label">Пользователей</div>
                 </div>
-                <div class="stat">
+                <div class="stat-card">
+                    <div class="stat-icon">📁</div>
                     <div class="stat-number" id="totalFiles">0</div>
-                    <div>Файлов</div>
+                    <div class="stat-label">Файлов</div>
                 </div>
-                <div class="stat">
+                <div class="stat-card">
+                    <div class="stat-icon">💾</div>
                     <div class="stat-number" id="totalSize">0 MB</div>
-                    <div>Данных</div>
+                    <div class="stat-label">Данных</div>
                 </div>
             </div>
         </div>
@@ -420,96 +927,181 @@
         <div class="main-box">
             <!-- Вкладки -->
             <div class="tabs" id="tabs">
-                <div class="tab active" onclick="switchTab('login')">🚪 Вход</div>
-                <div class="tab" onclick="switchTab('register')">📝 Регистрация</div>
+                <div class="tab active" onclick="switchTab('login')">
+                    <span>🚪</span> Вход
+                </div>
+                <div class="tab" onclick="switchTab('register')">
+                    <span>📝</span> Регистрация
+                </div>
+                <div class="tab" onclick="switchTab('premium')">
+                    <span>💎</span> Премиум
+                </div>
             </div>
 
             <!-- Форма входа -->
             <div id="loginForm" class="form active">
-                <h2>Вход</h2>
-                <input type="text" id="loginUsername" placeholder="Логин">
-                <input type="password" id="loginPassword" placeholder="Пароль">
-                <button class="btn" onclick="login()">🚀 Войти</button>
+                <h2>🚪 Добро пожаловать!</h2>
+                <div class="input-group">
+                    <i>👤</i>
+                    <input type="text" id="loginUsername" placeholder="Логин">
+                </div>
+                <div class="input-group">
+                    <i>🔑</i>
+                    <input type="password" id="loginPassword" placeholder="Пароль">
+                </div>
+                <button class="btn btn-primary" onclick="login()">
+                    <span>🚀</span> Войти в облако
+                </button>
+                <p style="text-align:center; margin-top:20px;">
+                    <a href="#" onclick="switchTab('register')" style="color:#3b82f6;">Нет аккаунта? Создать!</a>
+                </p>
             </div>
 
             <!-- Форма регистрации -->
             <div id="registerForm" class="form">
-                <h2>Регистрация</h2>
-                <input type="text" id="regUsername" placeholder="Логин">
-                <input type="password" id="regPassword" placeholder="Пароль">
-                <input type="password" id="regConfirm" placeholder="Повтори пароль">
-                <button class="btn" onclick="register()">📝 Создать аккаунт</button>
+                <h2>📝 Создать аккаунт</h2>
+                <div class="input-group">
+                    <i>👤</i>
+                    <input type="text" id="regUsername" placeholder="Придумай логин">
+                </div>
+                <div class="input-group">
+                    <i>🔑</i>
+                    <input type="password" id="regPassword" placeholder="Придумай пароль">
+                </div>
+                <div class="input-group">
+                    <i>✓</i>
+                    <input type="password" id="regConfirm" placeholder="Повтори пароль">
+                </div>
+                <button class="btn btn-primary" onclick="register()">
+                    <span>✨</span> Создать аккаунт
+                </button>
+            </div>
+
+            <!-- Премиум страница -->
+            <div id="premiumForm" class="form">
+                <h2>💎 Премиум возможности</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0;">
+                    <div style="background: linear-gradient(135deg, #fef3c7, #fde68a); padding: 30px; border-radius: 20px; text-align: center;">
+                        <div style="font-size: 48px;">🚀</div>
+                        <h3>Скорость</h3>
+                        <p>Загрузка в 2 раза быстрее</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #c7d2fe, #a5b4fc); padding: 30px; border-radius: 20px; text-align: center;">
+                        <div style="font-size: 48px;">📦</div>
+                        <h3>1 GB места</h3>
+                        <p>В 10 раз больше!</p>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #bbf7d0, #86efac); padding: 30px; border-radius: 20px; text-align: center;">
+                        <div style="font-size: 48px;">🎨</div>
+                        <h3>Темы оформления</h3>
+                        <p>Любые цвета</p>
+                    </div>
+                </div>
+                <button class="btn btn-primary" onclick="showToast('Премиум скоро будет!')">
+                    <span>💎</span> Купить премиум
+                </button>
             </div>
 
             <!-- Хранилище -->
             <div id="storage" class="storage">
-                <!-- Шапка пользователя -->
-                <div class="user-header">
-                    <div class="user-info">
+                <!-- Профиль -->
+                <div class="profile-card">
+                    <div class="profile-info">
                         <div class="avatar" id="userAvatar"></div>
-                        <div class="user-details">
-                            <h3 id="userName"></h3>
-                            <small>Зарегистрирован: <span id="userDate"></span></small>
+                        <div>
+                            <h2 id="userName"></h2>
+                            <p>
+                                <span class="badge">🔰 Обычный</span>
+                                <span class="badge">📅 <span id="userDate"></span></span>
+                            </p>
                         </div>
                     </div>
-                    <button class="btn btn-danger" style="width: auto;" onclick="logout()">🚪 Выйти</button>
+                    <button class="btn btn-danger" onclick="logout()" style="width: auto; padding: 12px 30px;">
+                        <span>🚪</span> Выйти
+                    </button>
                 </div>
 
                 <!-- Прогресс хранилища -->
-                <div class="storage-stats">
-                    <span>Использовано: <span id="usedSpace">0 MB</span></span>
-                    <span>Всего: <span id="totalSpace">100 MB</span></span>
-                </div>
-                <div class="storage-bar">
-                    <div class="storage-used" id="storageBar" style="width: 0%"></div>
+                <div class="storage-info">
+                    <div class="storage-stats">
+                        <span>📊 Использовано: <strong><span id="usedSpace">0 MB</span></strong></span>
+                        <span>📦 Всего: <strong><span id="totalSpace">100 MB</span></strong></span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="storageBar" style="width: 0%"></div>
+                    </div>
                 </div>
 
                 <!-- Ссылка для друга -->
-                <div class="share-box">
-                    <h4>🔗 Поделиться своим облаком</h4>
+                <div class="share-card">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="font-size: 24px;">🔗</span>
+                        <span style="font-weight: 600;">Твоя ссылка:</span>
+                    </div>
                     <div class="share-link" id="userLink">Загрузка...</div>
-                    <button class="copy-btn" onclick="copyLink()">📋 Копировать ссылку</button>
+                    <button class="copy-btn" onclick="copyLink()">
+                        <span>📋</span> Копировать
+                    </button>
                 </div>
 
-                <!-- Загрузка файлов -->
-                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <!-- Загрузка -->
+                <div class="upload-card" onclick="document.getElementById('fileInput').click()">
                     <input type="file" id="fileInput" style="display:none" multiple onchange="uploadFiles()">
-                    <i>📁</i>
-                    <h3>Нажми чтобы загрузить файлы</h3>
-                    <p>или перетащи их сюда</p>
+                    <div class="upload-icon">📤</div>
+                    <h2>Загрузить файлы</h2>
+                    <p>Нажми или перетащи файлы сюда</p>
+                    <p style="color:#94a3b8; font-size:14px;">Поддерживаются любые форматы</p>
                 </div>
 
                 <!-- Поиск -->
                 <div class="search-box">
-                    <input type="text" id="searchInput" placeholder="🔍 Поиск файлов..." onkeyup="searchFiles()">
+                    <i>🔍</i>
+                    <input type="text" id="searchInput" placeholder="Поиск файлов..." onkeyup="searchFiles()">
                 </div>
 
+                <!-- Кнопка создать папку -->
+                <button class="btn btn-success" onclick="showFolderModal()" style="margin: 20px 0;">
+                    <span>📁</span> Создать папку
+                </button>
+
+                <!-- Кнопка поддержки в Telegram (внутри хранилища) -->
+                <button class="btn btn-telegram" onclick="window.open('https://t.me/error_08081', '_blank')" style="margin: 10px 0;">
+                    <span>📱</span> Связаться с поддержкой
+                </button>
+
                 <!-- Список файлов -->
-                <div class="files-header">
-                    <div>Имя файла</div>
-                    <div class="hide-mobile">Размер</div>
-                    <div class="hide-mobile">Дата</div>
-                    <div>Действия</div>
-                </div>
-                <div id="fileList" class="file-list">
-                    <!-- Файлы будут тут -->
+                <div class="files-container">
+                    <div class="files-header">
+                        <div>Имя файла</div>
+                        <div class="hide-mobile">Размер</div>
+                        <div class="hide-mobile">Дата</div>
+                        <div>Действия</div>
+                    </div>
+                    <div id="fileList">
+                        <div class="loader"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Модальное окно для создания папки -->
+    <!-- Модальное окно -->
     <div id="folderModal" class="modal">
         <div class="modal-content">
             <h3>📁 Создать папку</h3>
-            <input type="text" id="folderName" placeholder="Название папки">
-            <button class="btn btn-success" onclick="createFolder()">Создать</button>
-            <button class="btn btn-danger" onclick="closeModal()">Отмена</button>
+            <div class="input-group">
+                <i>📁</i>
+                <input type="text" id="folderName" placeholder="Название папки">
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-success" onclick="createFolder()" style="flex:1;">Создать</button>
+                <button class="btn btn-danger" onclick="closeModal()" style="flex:1;">Отмена</button>
+            </div>
         </div>
     </div>
 
-    <!-- Уведомление -->
-    <div id="toast" class="toast"></div>
+    <!-- Уведомления -->
+    <div class="toast-container" id="toastContainer"></div>
 
     <script>
         // ============== ДАННЫЕ ==============
@@ -527,20 +1119,44 @@
                 (user.files || []).forEach(f => totalSize += (f.size || 0));
             });
             
-            document.getElementById('totalUsers').innerText = totalUsers;
-            document.getElementById('totalFiles').innerText = totalFiles;
-            document.getElementById('totalSize').innerText = (totalSize / (1024*1024)).toFixed(1);
+            animateNumber('totalUsers', totalUsers);
+            animateNumber('totalFiles', totalFiles);
+            document.getElementById('totalSize').innerText = (totalSize / (1024*1024)).toFixed(1) + ' MB';
+        }
+
+        function animateNumber(id, target) {
+            let element = document.getElementById(id);
+            let current = parseInt(element.innerText) || 0;
+            let step = Math.ceil((target - current) / 20);
+            
+            let interval = setInterval(() => {
+                current += step;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(interval);
+                }
+                element.innerText = current;
+            }, 20);
         }
 
         // ============== УВЕДОМЛЕНИЯ ==============
-        function showToast(text, type = 'success') {
-            let toast = document.getElementById('toast');
-            toast.style.background = type === 'success' ? '#48bb78' : '#e53e3e';
-            toast.innerText = text;
-            toast.style.display = 'block';
+        function showToast(text, type = 'success', duration = 3000) {
+            let container = document.getElementById('toastContainer');
+            let toast = document.createElement('div');
+            toast.className = `toast ${type === 'error' ? 'error' : ''}`;
+            
+            let icon = type === 'success' ? '✅' : '❌';
+            toast.innerHTML = `
+                <span style="font-size: 20px;">${icon}</span>
+                <span>${text}</span>
+            `;
+            
+            container.appendChild(toast);
+            
             setTimeout(() => {
-                toast.style.display = 'none';
-            }, 3000);
+                toast.style.animation = 'slideInRight 0.3s reverse';
+                setTimeout(() => toast.remove(), 300);
+            }, duration);
         }
 
         // ============== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ==============
@@ -551,9 +1167,12 @@
             if(tab === 'login') {
                 document.querySelectorAll('.tab')[0].classList.add('active');
                 document.getElementById('loginForm').classList.add('active');
-            } else {
+            } else if(tab === 'register') {
                 document.querySelectorAll('.tab')[1].classList.add('active');
                 document.getElementById('registerForm').classList.add('active');
+            } else {
+                document.querySelectorAll('.tab')[2].classList.add('active');
+                document.getElementById('premiumForm').classList.add('active');
             }
         }
 
@@ -593,7 +1212,7 @@
             currentUser = user;
             showStorage();
             updateStats();
-            showToast('✅ Регистрация успешна!');
+            showToast('🎉 Добро пожаловать!');
         }
 
         // ============== ВХОД ==============
@@ -606,9 +1225,9 @@
             if(currentUser) {
                 showStorage();
                 updateStats();
-                showToast('🚀 Добро пожаловать!');
+                showToast('🚀 Успешный вход!');
             } else {
-                showToast('❌ Неверный логин или пароль!', 'error');
+                showToast('Неверный логин или пароль!', 'error');
             }
         }
 
@@ -617,13 +1236,13 @@
             document.getElementById('tabs').style.display = 'none';
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('premiumForm').style.display = 'none';
             document.getElementById('storage').style.display = 'block';
             
             document.getElementById('userName').innerText = currentUser.username;
             document.getElementById('userAvatar').innerText = currentUser.username[0].toUpperCase();
             document.getElementById('userDate').innerText = currentUser.created || 'Сегодня';
             
-            // Ссылка
             let url = window.location.href.split('?')[0];
             document.getElementById('userLink').innerText = url + '?user=' + currentUser.id;
             
@@ -636,10 +1255,10 @@
             document.getElementById('tabs').style.display = 'flex';
             document.getElementById('storage').style.display = 'none';
             switchTab('login');
-            showToast('👋 До свидания!');
+            showToast('👋 До встречи!');
         }
 
-        // ============== ХРАНИЛИЩЕ БАР ==============
+        // ============== ПРОГРЕСС ==============
         function updateStorageBar() {
             let totalSize = 0;
             (currentUser.files || []).forEach(f => totalSize += (f.size || 0));
@@ -649,51 +1268,57 @@
             
             document.getElementById('usedSpace').innerText = usedMB + ' MB';
             document.getElementById('storageBar').style.width = percent + '%';
-            
-            if(percent > 90) {
-                document.getElementById('storageBar').style.background = 'linear-gradient(90deg, #fbbf24, #e53e3e)';
-            }
         }
 
         // ============== ФАЙЛЫ ==============
         function showFiles() {
-            let html = '';
             let files = currentUser.files || [];
             
             if(files.length === 0) {
-                document.getElementById('fileList').innerHTML = '<p style="text-align:center; padding:30px; color:#999;">📁 У тебя пока нет файлов. Загрузи первый!</p>';
+                document.getElementById('fileList').innerHTML = `
+                    <div style="text-align: center; padding: 60px;">
+                        <div style="font-size: 80px; margin-bottom: 20px;">📁</div>
+                        <h3 style="color: #64748b;">Здесь пока пусто</h3>
+                        <p style="color: #94a3b8;">Загрузи первый файл!</p>
+                    </div>
+                `;
                 return;
             }
             
-            // Сортируем по дате (новые сверху)
             files.sort((a, b) => (b.date || 0) - (a.date || 0));
             
+            let html = '';
             files.forEach((file, index) => {
-                let icon = '📄';
-                if(file.name.match(/\.(jpg|jpeg|png|gif)$/i)) icon = '🖼️';
-                else if(file.name.match(/\.(mp4|avi|mov)$/i)) icon = '🎬';
-                else if(file.name.match(/\.(mp3|wav)$/i)) icon = '🎵';
-                else if(file.name.match(/\.(pdf)$/i)) icon = '📕';
-                else if(file.name.match(/\.(doc|docx)$/i)) icon = '📘';
-                else if(file.name.match(/\.(zip|rar)$/i)) icon = '🗜️';
-                
-                let size = (file.size / 1024).toFixed(1) + ' KB';
-                if(file.size > 1024*1024) size = (file.size / (1024*1024)).toFixed(1) + ' MB';
-                
-                let date = file.date ? new Date(file.date).toLocaleDateString() : 'Только что';
+                let icon = getFileIcon(file.name);
+                let size = formatSize(file.size);
+                let date = file.date ? new Date(file.date).toLocaleString() : 'Только что';
                 
                 html += `
-                    <div class="file-item">
+                    <div class="file-row" style="animation-delay: ${index * 0.05}s">
                         <div class="file-name">
-                            <span>${icon}</span>
-                            <span>${file.name}</span>
+                            <span class="file-icon">${icon}</span>
+                            <div>
+                                <div style="font-weight: 500;">${file.name}</div>
+                                <div class="hide-desktop tag" style="display:none;">${size}</div>
+                            </div>
                         </div>
                         <div class="hide-mobile">${size}</div>
-                        <div class="hide-mobile"><span class="badge">${date}</span></div>
+                        <div class="hide-mobile">
+                            <span class="tag">${date}</span>
+                        </div>
                         <div class="file-actions">
-                            <button class="btn-success" onclick="downloadFile(${index})" title="Скачать">📥</button>
-                            <button class="btn-success" onclick="shareFile(${index})" title="Поделиться">🔗</button>
-                            <button class="btn-danger" onclick="deleteFile(${index})" title="Удалить">🗑️</button>
+                            <button class="action-btn download-btn" onclick="downloadFile(${index})">
+                                <span>📥</span>
+                                <span class="hide-mobile">Скачать</span>
+                            </button>
+                            <button class="action-btn share-btn" onclick="shareFile(${index})">
+                                <span>🔗</span>
+                                <span class="hide-mobile">Поделиться</span>
+                            </button>
+                            <button class="action-btn delete-btn" onclick="deleteFile(${index})">
+                                <span>🗑️</span>
+                                <span class="hide-mobile">Удалить</span>
+                            </button>
                         </div>
                     </div>
                 `;
@@ -702,9 +1327,34 @@
             document.getElementById('fileList').innerHTML = html;
         }
 
-        // ============== ЗАГРУЗКА ФАЙЛОВ ==============
+        function getFileIcon(filename) {
+            let ext = filename.split('.').pop().toLowerCase();
+            let icons = {
+                'jpg': '🖼️', 'jpeg': '🖼️', 'png': '🖼️', 'gif': '🖼️',
+                'mp4': '🎬', 'avi': '🎬', 'mov': '🎬',
+                'mp3': '🎵', 'wav': '🎵',
+                'pdf': '📕', 'doc': '📘', 'docx': '📘',
+                'zip': '🗜️', 'rar': '🗜️',
+                'txt': '📄', 'js': '⚡', 'html': '🌐', 'css': '🎨'
+            };
+            return icons[ext] || '📄';
+        }
+
+        function formatSize(bytes) {
+            if(bytes === 0) return '0 B';
+            let k = 1024;
+            let sizes = ['B', 'KB', 'MB', 'GB'];
+            let i = Math.floor(Math.log(bytes) / Math.log(k));
+            return (bytes / Math.pow(k, i)).toFixed(1) + ' ' + sizes[i];
+        }
+
+        // ============== ЗАГРУЗКА ==============
         function uploadFiles() {
             let files = document.getElementById('fileInput').files;
+            
+            if(files.length === 0) return;
+            
+            showToast(`⏳ Загрузка ${files.length} файлов...`);
             
             for(let i = 0; i < files.length; i++) {
                 let file = files[i];
@@ -720,41 +1370,41 @@
                         date: Date.now()
                     });
                     
-                    // Обновляем в общем списке
                     let index = users.findIndex(u => u.id === currentUser.id);
                     users[index] = currentUser;
                     localStorage.setItem('cloud_users', JSON.stringify(users));
                     
-                    showFiles();
-                    updateStorageBar();
-                    updateStats();
+                    if(i === files.length - 1) {
+                        showFiles();
+                        updateStorageBar();
+                        updateStats();
+                        showToast(`✅ Загружено ${files.length} файлов`);
+                    }
                 };
                 reader.readAsDataURL(file);
             }
-            
-            showToast(`✅ Загружено ${files.length} файлов`);
         }
 
         // ============== СКАЧИВАНИЕ ==============
         function downloadFile(index) {
+            let file = currentUser.files[index];
             let a = document.createElement('a');
-            a.href = currentUser.files[index].data;
-            a.download = currentUser.files[index].name;
+            a.href = file.data;
+            a.download = file.name;
             a.click();
-            showToast('📥 Скачивание началось');
+            showToast(`📥 Скачивание ${file.name}`);
         }
 
         // ============== ПОДЕЛИТЬСЯ ==============
         function shareFile(index) {
             let file = currentUser.files[index];
-            let shareData = {
-                title: 'Мой файл',
-                text: file.name,
-                url: file.data
-            };
             
             if(navigator.share) {
-                navigator.share(shareData);
+                navigator.share({
+                    title: file.name,
+                    text: 'Мой файл',
+                    url: file.data
+                });
             } else {
                 navigator.clipboard.writeText(file.data);
                 showToast('🔗 Ссылка скопирована!');
@@ -764,6 +1414,7 @@
         // ============== УДАЛЕНИЕ ==============
         function deleteFile(index) {
             if(confirm('Точно удалить?')) {
+                let fileName = currentUser.files[index].name;
                 currentUser.files.splice(index, 1);
                 
                 let userIndex = users.findIndex(u => u.id === currentUser.id);
@@ -773,7 +1424,7 @@
                 showFiles();
                 updateStorageBar();
                 updateStats();
-                showToast('🗑️ Файл удален');
+                showToast(`🗑️ ${fileName} удален`);
             }
         }
 
@@ -789,38 +1440,47 @@
             } else {
                 let html = '';
                 filtered.forEach((file, index) => {
-                    html += `<div class="file-item">
-                        <div class="file-name">📄 ${file.name}</div>
-                        <div>${(file.size/1024).toFixed(1)} KB</div>
-                        <div>${new Date(file.date).toLocaleDateString()}</div>
-                        <div class="file-actions">
-                            <button onclick="downloadFile(${index})">📥</button>
+                    html += `
+                        <div class="file-row">
+                            <div class="file-name">
+                                <span class="file-icon">${getFileIcon(file.name)}</span>
+                                <span>${file.name}</span>
+                            </div>
+                            <div class="hide-mobile">${formatSize(file.size)}</div>
+                            <div class="hide-mobile">${new Date(file.date).toLocaleDateString()}</div>
+                            <div class="file-actions">
+                                <button class="action-btn download-btn" onclick="downloadFile(${index})">📥</button>
+                            </div>
                         </div>
-                    </div>`;
+                    `;
                 });
                 document.getElementById('fileList').innerHTML = html;
             }
         }
 
-        // ============== КОПИРОВАТЬ ССЫЛКУ ==============
+        // ============== ССЫЛКА ==============
         function copyLink() {
-            navigator.clipboard.writeText(document.getElementById('userLink').innerText);
+            let link = document.getElementById('userLink').innerText;
+            navigator.clipboard.writeText(link);
             showToast('📋 Ссылка скопирована!');
         }
 
-        // ============== МОДАЛЬНОЕ ОКНО ==============
+        // ============== ПАПКИ ==============
         function showFolderModal() {
             document.getElementById('folderModal').style.display = 'flex';
         }
 
         function closeModal() {
             document.getElementById('folderModal').style.display = 'none';
+            document.getElementById('folderName').value = '';
         }
 
-        // ============== СОЗДАТЬ ПАПКУ ==============
         function createFolder() {
             let name = document.getElementById('folderName').value;
-            if(!name) return;
+            if(!name) {
+                showToast('Введите название папки!', 'error');
+                return;
+            }
             
             if(!currentUser.files) currentUser.files = [];
             
@@ -837,7 +1497,7 @@
             
             showFiles();
             closeModal();
-            showToast('📁 Папка создана');
+            showToast(`📁 Папка "${name}" создана`);
         }
 
         // ============== ПРОВЕРКА ПО ССЫЛКЕ ==============
@@ -850,8 +1510,13 @@
             }
         }
 
-        // Запускаем статистику
+        // ============== ЗАПУСК ==============
         updateStats();
+
+        // ============== ПРИВЕТСТВИЕ ==============
+        setTimeout(() => {
+            showToast('🚀 Добро пожаловать в Мега-Ультра Облако!', 'success', 5000);
+        }, 1000);
     </script>
 </body>
 </html>
