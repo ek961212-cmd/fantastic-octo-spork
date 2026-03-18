@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>☁️ Облако для всех</title>
+    <title>☁️ Мега Облако</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -18,16 +18,20 @@
             padding: 20px;
         }
 
-        .main-container {
+        .container {
             max-width: 1000px;
             margin: 0 auto;
         }
 
         /* Шапка */
         .header {
-            text-align: center;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
             color: white;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            text-align: center;
         }
 
         .header h1 {
@@ -35,41 +39,29 @@
             margin-bottom: 10px;
         }
 
-        .header p {
-            font-size: 18px;
-            opacity: 0.9;
-        }
-
-        /* Статистика */
         .stats {
             display: flex;
-            justify-content: space-around;
-            background: white;
-            border-radius: 15px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
         }
 
         .stat {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 15px;
             text-align: center;
         }
 
         .stat-number {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
-            color: #667eea;
-        }
-
-        .stat-label {
-            color: #666;
-            font-size: 14px;
         }
 
         /* Основной блок */
-        .cloud-box {
+        .main-box {
             background: white;
-            border-radius: 15px;
+            border-radius: 20px;
             padding: 30px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
         }
@@ -115,7 +107,7 @@
             font-size: 16px;
         }
 
-        .form button {
+        .btn {
             width: 100%;
             padding: 15px;
             background: #667eea;
@@ -126,10 +118,28 @@
             font-weight: 600;
             cursor: pointer;
             margin: 10px 0;
+            transition: all 0.3s;
         }
 
-        .form button:hover {
+        .btn:hover {
             background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background: #e53e3e;
+        }
+
+        .btn-danger:hover {
+            background: #c53030;
+        }
+
+        .btn-success {
+            background: #48bb78;
+        }
+
+        .btn-success:hover {
+            background: #38a169;
         }
 
         /* Хранилище */
@@ -137,11 +147,13 @@
             display: none;
         }
 
-        .storage-header {
+        .user-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e2e8f0;
         }
 
         .user-info {
@@ -151,8 +163,8 @@
         }
 
         .avatar {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
             background: #667eea;
             border-radius: 50%;
             display: flex;
@@ -160,114 +172,256 @@
             justify-content: center;
             color: white;
             font-weight: bold;
-            font-size: 20px;
+            font-size: 24px;
         }
 
-        .logout-btn {
-            padding: 8px 16px;
-            background: #f0f2f5;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
+        .user-details h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
         }
 
-        .upload-area {
+        .user-details small {
+            color: #718096;
+        }
+
+        /* Прогресс бар */
+        .storage-bar {
+            background: #edf2f7;
+            height: 10px;
+            border-radius: 5px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .storage-used {
+            height: 100%;
+            background: linear-gradient(90deg, #48bb78, #667eea);
+            border-radius: 5px;
+            transition: width 0.3s;
+        }
+
+        .storage-stats {
+            display: flex;
+            justify-content: space-between;
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* Ссылка для друга */
+        .share-box {
             background: #f7fafc;
             border: 2px dashed #cbd5e0;
             border-radius: 10px;
-            padding: 30px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .share-link {
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #e2e8f0;
+            word-break: break-all;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Загрузка */
+        .upload-area {
+            background: #f7fafc;
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
             text-align: center;
             margin: 20px 0;
             cursor: pointer;
+            transition: all 0.3s;
         }
 
         .upload-area:hover {
             background: #edf2f7;
+            border-color: #5a67d8;
         }
 
-        .file-list {
-            margin-top: 20px;
+        .upload-area i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        /* Поиск */
+        .search-box {
+            margin: 20px 0;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 16px;
+            padding-left: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23718096" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>') no-repeat 10px center;
+        }
+
+        /* Файлы */
+        .files-header {
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr 1fr;
+            padding: 15px;
+            background: #f7fafc;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #4a5568;
+            margin: 20px 0 10px;
         }
 
         .file-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 4fr 1fr 1fr 1fr;
             padding: 15px;
             border-bottom: 1px solid #e2e8f0;
+            align-items: center;
+            transition: background 0.3s;
         }
 
-        .file-item:last-child {
-            border-bottom: none;
+        .file-item:hover {
+            background: #f7fafc;
         }
 
-        .file-info {
+        .file-name {
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
+        .file-name i {
+            font-size: 24px;
+        }
+
+        .file-actions {
+            display: flex;
+            gap: 5px;
+        }
+
         .file-actions button {
-            padding: 5px 15px;
-            margin: 0 5px;
+            padding: 5px 10px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 12px;
         }
 
-        .download-btn {
+        .badge {
+            background: #edf2f7;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+        }
+
+        /* Модальное окно */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        /* Уведомления */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
             background: #48bb78;
             color: white;
-        }
-
-        .delete-btn {
-            background: #f56565;
-            color: white;
-        }
-
-        .share-link {
-            background: #f7fafc;
-            padding: 15px;
+            padding: 15px 25px;
             border-radius: 10px;
-            margin: 20px 0;
-            word-break: break-all;
+            display: none;
+            animation: slideIn 0.3s;
+            z-index: 1001;
         }
 
-        .footer {
-            text-align: center;
-            color: white;
-            margin-top: 20px;
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Адаптация */
+        @media (max-width: 768px) {
+            .files-header, .file-item {
+                grid-template-columns: 2fr 1fr;
+                gap: 10px;
+            }
+            
+            .hide-mobile {
+                display: none;
+            }
+            
+            .stats {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
+    <div class="container">
+        <!-- Шапка -->
         <div class="header">
-            <h1>☁️ Моё Облако</h1>
-            <p>Бесплатное хранилище для всех! Регистрируйся и загружай файлы</p>
+            <h1>☁️ МЕГА ОБЛАКО</h1>
+            <p>Бесплатно • Надёжно • Для всех</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number" id="totalUsers">0</div>
+                    <div>Пользователей</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="totalFiles">0</div>
+                    <div>Файлов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number" id="totalSize">0 MB</div>
+                    <div>Данных</div>
+                </div>
+            </div>
         </div>
 
-        <!-- Статистика -->
-        <div class="stats">
-            <div class="stat">
-                <div class="stat-number" id="totalUsers">0</div>
-                <div class="stat-label">Пользователей</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" id="totalFiles">0</div>
-                <div class="stat-label">Файлов</div>
-            </div>
-            <div class="stat">
-                <div class="stat-number" id="totalSize">0 MB</div>
-                <div class="stat-label">Всего данных</div>
-            </div>
-        </div>
-
-        <div class="cloud-box">
+        <!-- Основной блок -->
+        <div class="main-box">
             <!-- Вкладки -->
             <div class="tabs" id="tabs">
-                <div class="tab active" onclick="switchTab('login')">Вход</div>
-                <div class="tab" onclick="switchTab('register')">Регистрация</div>
+                <div class="tab active" onclick="switchTab('login')">🚪 Вход</div>
+                <div class="tab" onclick="switchTab('register')">📝 Регистрация</div>
             </div>
 
             <!-- Форма входа -->
@@ -275,55 +429,87 @@
                 <h2>Вход</h2>
                 <input type="text" id="loginUsername" placeholder="Логин">
                 <input type="password" id="loginPassword" placeholder="Пароль">
-                <button onclick="login()">Войти</button>
+                <button class="btn" onclick="login()">🚀 Войти</button>
             </div>
 
             <!-- Форма регистрации -->
             <div id="registerForm" class="form">
                 <h2>Регистрация</h2>
-                <input type="text" id="regUsername" placeholder="Придумай логин">
-                <input type="password" id="regPassword" placeholder="Придумай пароль">
-                <button onclick="register()">Зарегистрироваться</button>
+                <input type="text" id="regUsername" placeholder="Логин">
+                <input type="password" id="regPassword" placeholder="Пароль">
+                <input type="password" id="regConfirm" placeholder="Повтори пароль">
+                <button class="btn" onclick="register()">📝 Создать аккаунт</button>
             </div>
 
             <!-- Хранилище -->
             <div id="storage" class="storage">
-                <div class="storage-header">
+                <!-- Шапка пользователя -->
+                <div class="user-header">
                     <div class="user-info">
                         <div class="avatar" id="userAvatar"></div>
-                        <div>
+                        <div class="user-details">
                             <h3 id="userName"></h3>
-                            <small>твоё личное пространство</small>
+                            <small>Зарегистрирован: <span id="userDate"></span></small>
                         </div>
                     </div>
-                    <button class="logout-btn" onclick="logout()">Выйти</button>
+                    <button class="btn btn-danger" style="width: auto;" onclick="logout()">🚪 Выйти</button>
+                </div>
+
+                <!-- Прогресс хранилища -->
+                <div class="storage-stats">
+                    <span>Использовано: <span id="usedSpace">0 MB</span></span>
+                    <span>Всего: <span id="totalSpace">100 MB</span></span>
+                </div>
+                <div class="storage-bar">
+                    <div class="storage-used" id="storageBar" style="width: 0%"></div>
                 </div>
 
                 <!-- Ссылка для друга -->
-                <div class="share-link">
-                    <strong>🔗 Твоя ссылка:</strong><br>
-                    <span id="userLink"></span><br>
-                    <button onclick="copyLink()" style="margin-top:10px">Копировать ссылку</button>
+                <div class="share-box">
+                    <h4>🔗 Поделиться своим облаком</h4>
+                    <div class="share-link" id="userLink">Загрузка...</div>
+                    <button class="copy-btn" onclick="copyLink()">📋 Копировать ссылку</button>
                 </div>
 
-                <!-- Загрузка файла -->
+                <!-- Загрузка файлов -->
                 <div class="upload-area" onclick="document.getElementById('fileInput').click()">
-                    <input type="file" id="fileInput" style="display:none" onchange="uploadFile()">
-                    <p>📁 Нажми чтобы выбрать файл</p>
-                    <small>или перетащи его сюда</small>
+                    <input type="file" id="fileInput" style="display:none" multiple onchange="uploadFiles()">
+                    <i>📁</i>
+                    <h3>Нажми чтобы загрузить файлы</h3>
+                    <p>или перетащи их сюда</p>
+                </div>
+
+                <!-- Поиск -->
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="🔍 Поиск файлов..." onkeyup="searchFiles()">
                 </div>
 
                 <!-- Список файлов -->
+                <div class="files-header">
+                    <div>Имя файла</div>
+                    <div class="hide-mobile">Размер</div>
+                    <div class="hide-mobile">Дата</div>
+                    <div>Действия</div>
+                </div>
                 <div id="fileList" class="file-list">
-                    <p style="text-align:center; color:#999;">У тебя пока нет файлов</p>
+                    <!-- Файлы будут тут -->
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="footer">
-            <p>👥 Сейчас онлайн: <span id="onlineCount">0</span></p>
+    <!-- Модальное окно для создания папки -->
+    <div id="folderModal" class="modal">
+        <div class="modal-content">
+            <h3>📁 Создать папку</h3>
+            <input type="text" id="folderName" placeholder="Название папки">
+            <button class="btn btn-success" onclick="createFolder()">Создать</button>
+            <button class="btn btn-danger" onclick="closeModal()">Отмена</button>
         </div>
     </div>
+
+    <!-- Уведомление -->
+    <div id="toast" class="toast"></div>
 
     <script>
         // ============== ДАННЫЕ ==============
@@ -344,10 +530,17 @@
             document.getElementById('totalUsers').innerText = totalUsers;
             document.getElementById('totalFiles').innerText = totalFiles;
             document.getElementById('totalSize').innerText = (totalSize / (1024*1024)).toFixed(1);
-            
-            // Счетчик онлайн
-            let online = localStorage.getItem('online') || 0;
-            document.getElementById('onlineCount').innerText = online;
+        }
+
+        // ============== УВЕДОМЛЕНИЯ ==============
+        function showToast(text, type = 'success') {
+            let toast = document.getElementById('toast');
+            toast.style.background = type === 'success' ? '#48bb78' : '#e53e3e';
+            toast.innerText = text;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
         }
 
         // ============== ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК ==============
@@ -368,14 +561,20 @@
         function register() {
             let username = document.getElementById('regUsername').value;
             let password = document.getElementById('regPassword').value;
+            let confirm = document.getElementById('regConfirm').value;
             
             if(!username || !password) {
-                alert('Введи логин и пароль!');
+                showToast('Заполни все поля!', 'error');
+                return;
+            }
+            
+            if(password !== confirm) {
+                showToast('Пароли не совпадают!', 'error');
                 return;
             }
             
             if(users.find(u => u.username === username)) {
-                alert('Такой логин уже есть!');
+                showToast('Логин уже занят!', 'error');
                 return;
             }
             
@@ -383,7 +582,9 @@
                 id: Date.now(),
                 username: username,
                 password: password,
-                files: []
+                files: [],
+                created: new Date().toLocaleDateString(),
+                totalSize: 0
             };
             
             users.push(user);
@@ -392,11 +593,7 @@
             currentUser = user;
             showStorage();
             updateStats();
-            
-            // Увеличиваем счетчик онлайн
-            let online = parseInt(localStorage.getItem('online') || '0');
-            online++;
-            localStorage.setItem('online', online);
+            showToast('✅ Регистрация успешна!');
         }
 
         // ============== ВХОД ==============
@@ -409,13 +606,9 @@
             if(currentUser) {
                 showStorage();
                 updateStats();
-                
-                // Увеличиваем счетчик онлайн
-                let online = parseInt(localStorage.getItem('online') || '0');
-                online++;
-                localStorage.setItem('online', online);
+                showToast('🚀 Добро пожаловать!');
             } else {
-                alert('Неверный логин или пароль!');
+                showToast('❌ Неверный логин или пароль!', 'error');
             }
         }
 
@@ -428,83 +621,149 @@
             
             document.getElementById('userName').innerText = currentUser.username;
             document.getElementById('userAvatar').innerText = currentUser.username[0].toUpperCase();
+            document.getElementById('userDate').innerText = currentUser.created || 'Сегодня';
             
             // Ссылка
             let url = window.location.href.split('?')[0];
             document.getElementById('userLink').innerText = url + '?user=' + currentUser.id;
             
+            updateStorageBar();
             showFiles();
         }
 
         function logout() {
-            // Уменьшаем счетчик онлайн
-            let online = parseInt(localStorage.getItem('online') || '0');
-            online = Math.max(0, online - 1);
-            localStorage.setItem('online', online);
-            
             currentUser = null;
             document.getElementById('tabs').style.display = 'flex';
             document.getElementById('storage').style.display = 'none';
             switchTab('login');
+            showToast('👋 До свидания!');
         }
 
+        // ============== ХРАНИЛИЩЕ БАР ==============
+        function updateStorageBar() {
+            let totalSize = 0;
+            (currentUser.files || []).forEach(f => totalSize += (f.size || 0));
+            
+            let usedMB = (totalSize / (1024*1024)).toFixed(2);
+            let percent = Math.min((totalSize / (100 * 1024 * 1024)) * 100, 100);
+            
+            document.getElementById('usedSpace').innerText = usedMB + ' MB';
+            document.getElementById('storageBar').style.width = percent + '%';
+            
+            if(percent > 90) {
+                document.getElementById('storageBar').style.background = 'linear-gradient(90deg, #fbbf24, #e53e3e)';
+            }
+        }
+
+        // ============== ФАЙЛЫ ==============
         function showFiles() {
             let html = '';
-            if(currentUser.files && currentUser.files.length > 0) {
-                currentUser.files.forEach((file, index) => {
-                    html += `
-                        <div class="file-item">
-                            <div class="file-info">
-                                <span>📄 ${file.name}</span>
-                                <small>(${(file.size/1024).toFixed(1)} KB)</small>
-                            </div>
-                            <div class="file-actions">
-                                <button class="download-btn" onclick="downloadFile(${index})">📥</button>
-                                <button class="delete-btn" onclick="deleteFile(${index})">🗑️</button>
-                            </div>
-                        </div>
-                    `;
-                });
-            } else {
-                html = '<p style="text-align:center; color:#999;">У тебя пока нет файлов</p>';
+            let files = currentUser.files || [];
+            
+            if(files.length === 0) {
+                document.getElementById('fileList').innerHTML = '<p style="text-align:center; padding:30px; color:#999;">📁 У тебя пока нет файлов. Загрузи первый!</p>';
+                return;
             }
+            
+            // Сортируем по дате (новые сверху)
+            files.sort((a, b) => (b.date || 0) - (a.date || 0));
+            
+            files.forEach((file, index) => {
+                let icon = '📄';
+                if(file.name.match(/\.(jpg|jpeg|png|gif)$/i)) icon = '🖼️';
+                else if(file.name.match(/\.(mp4|avi|mov)$/i)) icon = '🎬';
+                else if(file.name.match(/\.(mp3|wav)$/i)) icon = '🎵';
+                else if(file.name.match(/\.(pdf)$/i)) icon = '📕';
+                else if(file.name.match(/\.(doc|docx)$/i)) icon = '📘';
+                else if(file.name.match(/\.(zip|rar)$/i)) icon = '🗜️';
+                
+                let size = (file.size / 1024).toFixed(1) + ' KB';
+                if(file.size > 1024*1024) size = (file.size / (1024*1024)).toFixed(1) + ' MB';
+                
+                let date = file.date ? new Date(file.date).toLocaleDateString() : 'Только что';
+                
+                html += `
+                    <div class="file-item">
+                        <div class="file-name">
+                            <span>${icon}</span>
+                            <span>${file.name}</span>
+                        </div>
+                        <div class="hide-mobile">${size}</div>
+                        <div class="hide-mobile"><span class="badge">${date}</span></div>
+                        <div class="file-actions">
+                            <button class="btn-success" onclick="downloadFile(${index})" title="Скачать">📥</button>
+                            <button class="btn-success" onclick="shareFile(${index})" title="Поделиться">🔗</button>
+                            <button class="btn-danger" onclick="deleteFile(${index})" title="Удалить">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
             document.getElementById('fileList').innerHTML = html;
         }
 
-        function uploadFile() {
-            let file = document.getElementById('fileInput').files[0];
-            if(!file) return;
+        // ============== ЗАГРУЗКА ФАЙЛОВ ==============
+        function uploadFiles() {
+            let files = document.getElementById('fileInput').files;
             
-            let reader = new FileReader();
-            reader.onload = function(e) {
-                if(!currentUser.files) currentUser.files = [];
+            for(let i = 0; i < files.length; i++) {
+                let file = files[i];
                 
-                currentUser.files.push({
-                    name: file.name,
-                    size: file.size,
-                    data: e.target.result
-                });
-                
-                // Обновляем в общем списке
-                let index = users.findIndex(u => u.id === currentUser.id);
-                users[index] = currentUser;
-                localStorage.setItem('cloud_users', JSON.stringify(users));
-                
-                showFiles();
-                updateStats();
-            };
-            reader.readAsDataURL(file);
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    if(!currentUser.files) currentUser.files = [];
+                    
+                    currentUser.files.push({
+                        name: file.name,
+                        size: file.size,
+                        data: e.target.result,
+                        date: Date.now()
+                    });
+                    
+                    // Обновляем в общем списке
+                    let index = users.findIndex(u => u.id === currentUser.id);
+                    users[index] = currentUser;
+                    localStorage.setItem('cloud_users', JSON.stringify(users));
+                    
+                    showFiles();
+                    updateStorageBar();
+                    updateStats();
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            showToast(`✅ Загружено ${files.length} файлов`);
         }
 
+        // ============== СКАЧИВАНИЕ ==============
         function downloadFile(index) {
             let a = document.createElement('a');
             a.href = currentUser.files[index].data;
             a.download = currentUser.files[index].name;
             a.click();
+            showToast('📥 Скачивание началось');
         }
 
+        // ============== ПОДЕЛИТЬСЯ ==============
+        function shareFile(index) {
+            let file = currentUser.files[index];
+            let shareData = {
+                title: 'Мой файл',
+                text: file.name,
+                url: file.data
+            };
+            
+            if(navigator.share) {
+                navigator.share(shareData);
+            } else {
+                navigator.clipboard.writeText(file.data);
+                showToast('🔗 Ссылка скопирована!');
+            }
+        }
+
+        // ============== УДАЛЕНИЕ ==============
         function deleteFile(index) {
-            if(confirm('Удалить файл?')) {
+            if(confirm('Точно удалить?')) {
                 currentUser.files.splice(index, 1);
                 
                 let userIndex = users.findIndex(u => u.id === currentUser.id);
@@ -512,13 +771,73 @@
                 localStorage.setItem('cloud_users', JSON.stringify(users));
                 
                 showFiles();
+                updateStorageBar();
                 updateStats();
+                showToast('🗑️ Файл удален');
             }
         }
 
+        // ============== ПОИСК ==============
+        function searchFiles() {
+            let search = document.getElementById('searchInput').value.toLowerCase();
+            let files = currentUser.files || [];
+            
+            let filtered = files.filter(f => f.name.toLowerCase().includes(search));
+            
+            if(search === '') {
+                showFiles();
+            } else {
+                let html = '';
+                filtered.forEach((file, index) => {
+                    html += `<div class="file-item">
+                        <div class="file-name">📄 ${file.name}</div>
+                        <div>${(file.size/1024).toFixed(1)} KB</div>
+                        <div>${new Date(file.date).toLocaleDateString()}</div>
+                        <div class="file-actions">
+                            <button onclick="downloadFile(${index})">📥</button>
+                        </div>
+                    </div>`;
+                });
+                document.getElementById('fileList').innerHTML = html;
+            }
+        }
+
+        // ============== КОПИРОВАТЬ ССЫЛКУ ==============
         function copyLink() {
             navigator.clipboard.writeText(document.getElementById('userLink').innerText);
-            alert('Ссылка скопирована!');
+            showToast('📋 Ссылка скопирована!');
+        }
+
+        // ============== МОДАЛЬНОЕ ОКНО ==============
+        function showFolderModal() {
+            document.getElementById('folderModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('folderModal').style.display = 'none';
+        }
+
+        // ============== СОЗДАТЬ ПАПКУ ==============
+        function createFolder() {
+            let name = document.getElementById('folderName').value;
+            if(!name) return;
+            
+            if(!currentUser.files) currentUser.files = [];
+            
+            currentUser.files.push({
+                name: name,
+                size: 0,
+                isFolder: true,
+                date: Date.now()
+            });
+            
+            let index = users.findIndex(u => u.id === currentUser.id);
+            users[index] = currentUser;
+            localStorage.setItem('cloud_users', JSON.stringify(users));
+            
+            showFiles();
+            closeModal();
+            showToast('📁 Папка создана');
         }
 
         // ============== ПРОВЕРКА ПО ССЫЛКЕ ==============
